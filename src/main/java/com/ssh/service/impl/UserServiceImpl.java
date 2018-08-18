@@ -13,8 +13,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean add(User user){
-        this.userDao.add(user);
-        return true;
+        if (this.userDao.add(user)){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override

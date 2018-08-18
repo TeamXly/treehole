@@ -172,7 +172,7 @@
 <footer class="footer">Tree hole on 2018</footer>
 
 <div id="box">
-    <div class="zu"><a href="zuce.html">注册</a></div>
+    <div class="zu"><a href="register.jsp">注册</a></div>
     <div class="qu">X</div>
     <div class="box">
         <form class="reg-form" id="reg-form" method="post">

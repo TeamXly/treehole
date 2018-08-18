@@ -12,7 +12,7 @@ public interface UserDao {
     /**
      * 注册
      */
-    public void add(User user);
+    public boolean add(User user);
 
 
 }
