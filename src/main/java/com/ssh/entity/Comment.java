@@ -13,7 +13,7 @@ public class Comment {
     private String text;
 
     @Id
-    @Column(name = "commentid", nullable = false)
+    @Column(name = "commentid")
     public int getCommentid() {
         return commentid;
     }
@@ -23,7 +23,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "publishedtime", nullable = false)
+    @Column(name = "publishedtime")
     public Date getPublishedtime() {
         return publishedtime;
     }
@@ -33,7 +33,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "text", nullable = false, length = -1)
+    @Column(name = "text")
     public String getText() {
         return text;
     }

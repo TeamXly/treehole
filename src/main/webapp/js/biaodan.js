@@ -53,20 +53,17 @@ oForm.addEventListener('submit',function(e){
         oInputs[i].blur();//主动失去焦点触发
     }
     var errors = this.getElementsByClassName('error');
-
     if(errors.length === 0){
-
         console.log('验证成功可以提交');
-
-            $.ajax({
-                url : 'login',
-                type : "post",
-                dataType : "json",
-                data : $('form').serialize(),//将form表单里所有的数据串联起来
-                success : function(data){
-                    console.log(data)
-                }
-            });
+            // $.ajax({
+            //     url : 'login',
+            //     type : "post",
+            //     dataType : "json",
+            //     data : $('form').serialize(),//将form表单里所有的数据串联起来
+            //     success : function(data){
+            //         console.log(data)
+            //     }
+            // });
         oForm.action = "login";
         oForm.submit();
     }else{

@@ -1,16 +1,12 @@
 package com.ssh.action;
-import com.ssh.dao.impl.UserDaoimpl;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.entity.User;
 import com.ssh.service.UserService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,13 +20,12 @@ public class LoginAction extends ActionSupport {
     private User user;
 
     public String login(){
-        System.out.println(user.getUsername());
         if (userService.login(user)){
             HttpServletResponse response = ServletActionContext.getResponse();
             //设置cookie
-            Cookie uname = new Cookie("username",user.getUsername());
-            response.addCookie(uname);
-            uname.setMaxAge(-1);
+            Cookie username = new Cookie("phone",user.getPhone());
+            response.addCookie(username);
+            username.setMaxAge(-1);
             return SUCCESS;
         }else {
             return ERROR;

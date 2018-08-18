@@ -1,23 +1,14 @@
 package com.ssh.dao.impl;
 
 import com.ssh.dao.UserDao;
-import com.ssh.entity.User;
-import org.apache.struts2.ServletActionContext;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
 
-import com.ssh.util.HibarnateUtil;
+import com.ssh.entity.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Transactional(rollbackFor = Exception.class)
@@ -29,17 +20,12 @@ public class UserDaoimpl implements UserDao {
 
     @Override
     public boolean login(User user){
-//        ApplicationContext ac=new ClassPathXmlApplicationContext("applicationContext.xml");
-        //Session session=HibarnateUtil.getSession();
-//        User user=(User)ac.getBean("user");
-//        user.setUsername(username);
-//        user.setPassword(password);
-        String sql="select password from user where username=?";
+        String sql="select password from user where phone=?";
         Query query=sessionFactory.getCurrentSession().createSQLQuery(sql);
-        query.setString(1,user.getUsername());
+        query.setString(1,user.getPhone());
         List list=query.list();
         if(list.isEmpty()){
-            System.out.println("用户名不存在");
+            System.out.println("手机号不存在");
             return false;
         }else {
             if(list.get(0).equals(user.getPassword())){

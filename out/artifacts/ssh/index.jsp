@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: kinthon
+  Date: 17-6-23
+  Time: 下午8:15
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html class="root-view">
@@ -174,7 +181,7 @@
                     <img src="images/zh.png" alt="">
                 </strong>
                 <div>
-                    <input type="" name="tpl" maxlength="11" placeholder="账号为手机号">
+                    <input type="text" name="user.phone" maxlength="11" placeholder="账号为手机号">
                     <i></i>
                 </div>
             </label>
@@ -183,7 +190,7 @@
                     <img src="images/mm.png" alt="">
                 </strong>
                 <div>
-                    <input type="password" name="password" maxlength="16" placeholder="密码8-16位">
+                    <input type="password" name="user.password" maxlength="16" placeholder="密码8-16位">
                     <i></i>
                 </div>
             </label>

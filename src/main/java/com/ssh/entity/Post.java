@@ -17,7 +17,7 @@ public class Post {
     private boolean isboutique;
 
     @Id
-    @Column(name = "postid", nullable = false)
+    @Column(name = "postid")
     public int getPostid() {
         return postid;
     }
@@ -27,7 +27,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "publishedtime", nullable = false)
+    @Column(name = "publishedtime")
     public Date getPublishedtime() {
         return publishedtime;
     }
@@ -37,7 +37,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "title", nullable = false, length = 200)
+    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -47,7 +47,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "text", nullable = false, length = -1)
+    @Column(name = "text")
     public String getText() {
         return text;
     }
@@ -57,7 +57,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "like", nullable = false)
+    @Column(name = "like")
     public int getLike() {
         return like;
     }
@@ -67,7 +67,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "dislike", nullable = false)
+    @Column(name = "dislike")
     public int getDislike() {
         return dislike;
     }
@@ -77,7 +77,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "isboutique", nullable = false)
+    @Column(name = "isboutique")
     public boolean isIsboutique() {
         return isboutique;
     }

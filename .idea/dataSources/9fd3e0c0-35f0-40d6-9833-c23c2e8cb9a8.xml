@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="treehole@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.8">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.9">
     <root id="1">
-      <ServerVersion>5.7.19</ServerVersion>
+      <ServerVersion>5.7.22</ServerVersion>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <DefaultCasing>lower/lower</DefaultCasing>
     </root>
-    <schema id="2" parent="1" name="information_schema">
+    <schema id="2" parent="1" name="aa">
+      <Collation>utf8_bin</Collation>
+    </schema>
+    <schema id="3" parent="1" name="db_wuliu">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="3" parent="1" name="mysql">
+    <schema id="4" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="4" parent="1" name="performance_schema">
+    <schema id="5" parent="1" name="lt">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="5" parent="1" name="sakila">
+    <schema id="6" parent="1" name="mysql">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="6" parent="1" name="sys">
+    <schema id="7" parent="1" name="performance_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="7" parent="1" name="test">
+    <schema id="8" parent="1" name="sys">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="8" parent="1" name="treehole">
+    <schema id="9" parent="1" name="treehole">
       <Current>1</Current>
       <Visible>1</Visible>
-      <Collation>utf8_general_ci</Collation>
-    </schema>
-    <schema id="9" parent="1" name="world">
       <Collation>utf8_general_ci</Collation>
     </schema>
     <collation id="10" parent="1" name="armscii8_bin">
@@ -921,9 +921,9 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="232" parent="8" name="comment"/>
-    <table id="233" parent="8" name="post"/>
-    <table id="234" parent="8" name="user"/>
+    <table id="232" parent="9" name="comment"/>
+    <table id="233" parent="9" name="post"/>
+    <table id="234" parent="9" name="user"/>
     <column id="235" parent="232" name="commentid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
@@ -1077,7 +1077,13 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="261" parent="234" name="PRIMARY">
+    <column id="261" parent="234" name="phone">
+      <Position>6</Position>
+      <DataType>varchar(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="262" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid</ColNames>
       <Primary>1</Primary>
