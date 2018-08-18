@@ -3,7 +3,10 @@ package com.ssh.dao.impl;
 import com.ssh.dao.UserDao;
 
 import com.ssh.entity.User;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.bytecode.enhance.spi.EnhancementException;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -36,8 +39,18 @@ public class UserDaoimpl implements UserDao {
             }
         }
     }
-    public void add(User user){
-        //还没开始写
-        System.out.println("真没开始写啊");
+    public boolean add(User user){
+        Session session=sessionFactory.openSession().getSession();
+        Transaction tr=session.beginTransaction();
+        try {
+            user.setUserid(0);
+            user.setType("普通用户");
+            session.save(user);
+            tr.commit();
+            session.close();
+            return true;
+        }catch (EnhancementException e){
+            return false;
+        }
     }
 }
