@@ -21,10 +21,11 @@ public class LoginAction extends ActionSupport {
     private User user;
 
     public String login(){
-        if (userService.login(user)){
+        Object[] obj=userService.login(user);
+        if (user.getPassword().equals(obj[0])){
             HttpServletResponse response = ServletActionContext.getResponse();
             //设置cookie
-            Cookie username = new Cookie("phone",user.getPhone());
+            Cookie username = new Cookie("username",(String)obj[1]);
             response.addCookie(username);
             username.setMaxAge(-1);
             return SUCCESS;

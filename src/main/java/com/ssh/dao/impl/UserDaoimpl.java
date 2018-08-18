@@ -22,22 +22,13 @@ public class UserDaoimpl implements UserDao {
     @Autowired private SessionFactory sessionFactory;
 
     @Override
-    public boolean login(User user){
-        String sql="select password from user where phone=?";
+    public Object[] login(User user){
+        String sql="select password,username from user where phone=?";
         Query query=sessionFactory.getCurrentSession().createSQLQuery(sql);
         query.setString(1,user.getPhone());
         List list=query.list();
-        if(list.isEmpty()){
-            System.out.println("手机号不存在");
-            return false;
-        }else {
-            if(list.get(0).equals(user.getPassword())){
-                return true;
-            }else {
-                System.out.println("密码错误");
-                return false;
-            }
-        }
+        Object[] obj=(Object[])list.get(0);
+        return obj;
     }
     public boolean add(User user){
         Session session=sessionFactory.openSession().getSession();

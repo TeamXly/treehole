@@ -21,11 +21,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean login(User user){
-        if (this.userDao.login(user)){
-            return true;
-        }else {
-           return false;
-        }
+    public Object[] login(User user){
+        return this.userDao.login(user);
     }
 }

@@ -7,7 +7,7 @@ public interface UserDao {
      * @param user
      * 登录
      */
-    public boolean login(User user);
+    public Object[] login(User user);
 
     /**
      * 注册
