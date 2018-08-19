@@ -18,7 +18,6 @@ import java.util.List;
 //出现Exception异常回滚
 @Repository("UserDao")//@Repository用于标注数据访问组件，说明这个类是数据访问层组件
 public class UserDaoimpl implements UserDao {
-    //@Resource(name = "sessionFactory")
     @Autowired private SessionFactory sessionFactory;
 
     @Override

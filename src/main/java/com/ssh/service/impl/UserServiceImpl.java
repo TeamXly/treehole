@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service("UserService")//@Service用于标注业务层组件，说明这个类是业务层组件,名字无所谓
 public class UserServiceImpl implements UserService {
-    //@Resource
     @Autowired private UserDao userDao;
 
     @Override
