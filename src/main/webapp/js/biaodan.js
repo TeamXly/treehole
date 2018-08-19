@@ -57,8 +57,8 @@ oForm.addEventListener('submit',function(e){
         console.log('验证成功可以提交');
             // $.ajax({
             //     url : 'login',
-            //     type : "post",
-            //     dataType : "json",
+            //     type : "get",
+            //     dataType : "String",
             //     data : $('form').serialize(),//将form表单里所有的数据串联起来
             //     success : function(data){
             //         console.log(data)
@@ -78,3 +78,32 @@ function hintsShow(ele,blooe,str){
     ele.className = blooe ? 'success' : 'error';
     ele.innerHTML = str;
 }
+
+$(".comm-p").on("click",function() {
+    var $this = $(this),
+        ff = $this.parent().parent(),
+        comm = ff.find(".comm");
+    comm.toggle(300);
+});
+
+$(".ping").hover(function() {
+    $(this).focus();
+},function () {
+
+});
+
+$(".ping").focus(function() {
+    $(this).val("");
+});
+
+$(".fa").on("click",function(){
+    var $this = $(this),
+        ff = $this.parent(),
+        oList = ff.find("ul"),
+        oping = ff.find(".ping");
+    var val = oping.val();
+    if(val != ""){
+        var jie = "<li><span><a href=''>伤天害理</a></span><span>"+val+"</span></li><hr>";
+        oList.append(jie);
+    }
+});
