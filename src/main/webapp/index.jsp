@@ -44,6 +44,9 @@
                 <li>
                     <a href="">发表</a>
                 </li>
+                <li>
+                    <a href="Person_Center_Check.html">个人中心</a>
+                </li>
             </ul>
         </nav>
     </section>
