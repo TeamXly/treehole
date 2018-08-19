@@ -20,6 +20,8 @@ public class AddAction extends ActionSupport {
     private Comment comment;
 
     public String addPost(){
+        System.out.println("action调用");
+        addService.addPost(post);
         return SUCCESS;
     }
     public String addcomment(){

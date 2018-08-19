@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -46,7 +47,7 @@
 			</h2>
 			<div class="block">
 				<div>
-					<form method="">
+					<form method="" action="publishpost">
 						<table>
 							<tbody>
 								<tr>

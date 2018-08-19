@@ -19,6 +19,10 @@
             <result name="success">/index.jsp</result>
             <result name="error">/redirect/registererror.jsp</result>
         </action>
+        <!--发表帖子和发表回复-->
+        <action name="publishpost" class="com.ssh.action.AddAction" method="addPost">
+            <result name="success">/Person_Center_Check.jsp</result>
+        </action>
 
 
         <action name="cookie" class="com.ssh.action.LookCookie">
