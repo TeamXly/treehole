@@ -25,4 +25,23 @@ public class AddAction extends ActionSupport {
     public String addcomment(){
         return SUCCESS;
     }
+
+
+
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public Comment getComment() {
+        return comment;
+    }
+
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
 }
