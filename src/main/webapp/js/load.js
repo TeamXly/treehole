@@ -14,9 +14,6 @@ $(".load-more a").on('click',function(){
         $this.text('加载更多');
         $('.article-list').append(_document);
     });
-
-
-
     return false;
 });
 
@@ -30,11 +27,11 @@ oBtn.onclick = function() {
     (this.openStatu)?oView.classList.add('nav-open'):oView.classList.remove('nav-open')
 };
 
-
 $(".deng").on("click",function() {
     $("#box").toggle(300);
     return false;
 });
+
 $(".logo").on("click",function() {
     return false;
 });

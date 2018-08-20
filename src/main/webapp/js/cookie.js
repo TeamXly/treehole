@@ -1,6 +1,5 @@
 $(function () {
     var username=$.cookie('username');
-    console.log(username);
     if(username != null){
         $('.deng').hide();
         $('.welcome').show();
