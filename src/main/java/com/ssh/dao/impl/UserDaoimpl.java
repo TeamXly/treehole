@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Transactional(rollbackFor = Exception.class)
@@ -21,11 +22,17 @@ public class UserDaoimpl implements UserDao {
     @Autowired private SessionFactory sessionFactory;
 
     @Override
-    public List login(User user){
-        String sql="select password,username from user where phone=?";
+    public List<Object> login(User user){
+        String sql="select userid,password,username from user where phone=?";
         Query query=sessionFactory.getCurrentSession().createSQLQuery(sql);
         query.setString(1,user.getPhone());
-        List list=query.list();
+        List<Object> list=null;
+        list=query.list();
+//        for (int i=0;i<list.size();i++) {
+//            Object[] row = (Object[]) list.get(i);
+//            System.out.println( row[0] + ":" +row[1] );
+//        }
+        //System.out.println(list.get(0));
         return list;
     }
     public boolean add(User user){

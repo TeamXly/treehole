@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List login(User user){
+    public List<Object> login(User user){
         return this.userDao.login(user);
     }
 }

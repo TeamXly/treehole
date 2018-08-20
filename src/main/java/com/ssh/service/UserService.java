@@ -7,5 +7,5 @@ import java.util.List;
 public interface UserService {
     public boolean add(User user);
 
-    public List login(User user);
+    public List<Object> login(User user);
 }

@@ -19,7 +19,6 @@ public class UserDeleteDaoimpl implements UserDeleteDao {
     public boolean deletePost(Post post) {
         return false;
     }
-
     @Override
     public boolean deleteComment(Comment comment) {
         return false;
