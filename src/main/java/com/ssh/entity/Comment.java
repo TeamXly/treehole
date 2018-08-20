@@ -47,7 +47,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "postid", nullable = true)
+    @Column(name = "postid", nullable = true,insertable = false,updatable = false)
     public Integer getPostid() {
         return postid;
     }
@@ -57,7 +57,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "userid", nullable = true)
+    @Column(name = "userid", nullable = true,insertable = false,updatable = false)
     public Integer getUserid() {
         return userid;
     }
@@ -85,7 +85,7 @@ public class Comment {
     }
 
     @ManyToOne
-    @JoinColumn(name = "postid", referencedColumnName = "postid")
+    @JoinColumn(name = "postid", referencedColumnName = "postid",insertable = false,updatable = false)
     public Post getPostByPostid() {
         return postByPostid;
     }
@@ -95,7 +95,7 @@ public class Comment {
     }
 
     @ManyToOne
-    @JoinColumn(name = "postid", referencedColumnName = "postid")
+    @JoinColumn(name = "postid", referencedColumnName = "postid",insertable = false,updatable = false)
     public Post getPostByPostid_0() {
         return postByPostid_0;
     }
@@ -105,7 +105,7 @@ public class Comment {
     }
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    @JoinColumn(name = "userid", referencedColumnName = "userid",insertable = false,updatable = false)
     public User getUserByUserid() {
         return userByUserid;
     }
@@ -115,7 +115,7 @@ public class Comment {
     }
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    @JoinColumn(name = "userid", referencedColumnName = "userid",insertable = false,updatable = false)
     public User getUserByUserid_0() {
         return userByUserid_0;
     }

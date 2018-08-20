@@ -91,7 +91,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "userid", nullable = true)
+    @Column(name = "userid", nullable = true,insertable = false,updatable = false)
     public Integer getUserid() {
         return userid;
     }
@@ -140,7 +140,7 @@ public class Post {
     }
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    @JoinColumn(name = "userid", referencedColumnName = "userid",insertable = false,updatable = false)
     public User getUserByUserid() {
         return userByUserid;
     }
@@ -150,7 +150,7 @@ public class Post {
     }
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    @JoinColumn(name = "userid", referencedColumnName = "userid",insertable = false,updatable = false)
     public User getUserByUserid_0() {
         return userByUserid_0;
     }
