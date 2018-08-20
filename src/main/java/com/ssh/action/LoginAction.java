@@ -27,10 +27,7 @@ public class LoginAction extends ActionSupport {
         List<Object> list=userService.login(user);
         if (!list.isEmpty()){
             Object[] row = (Object[]) list.get(0);
-            System.out.println(user.getPassword()+row[1]);
-            System.out.println("list not null");
             if (user.getPassword().equals(row[1])){
-                System.out.println("list ==");
                 HttpServletResponse response = ServletActionContext.getResponse();
                 //设置cookie
                 Cookie username = new Cookie("username",String.valueOf(row[2]));
