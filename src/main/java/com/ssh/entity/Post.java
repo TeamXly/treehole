@@ -125,7 +125,6 @@ public class Post {
     public Collection<Comment> getCommentsByPostid() {
         return commentsByPostid;
     }
-
     public void setCommentsByPostid(Collection<Comment> commentsByPostid) {
         this.commentsByPostid = commentsByPostid;
     }
@@ -144,7 +143,6 @@ public class Post {
     public User getUserByUserid() {
         return userByUserid;
     }
-
     public void setUserByUserid(User userByUserid) {
         this.userByUserid = userByUserid;
     }

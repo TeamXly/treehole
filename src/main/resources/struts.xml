@@ -24,6 +24,7 @@
             <result name="success">/Person_Center_Check.jsp</result>
         </action>
 
+        <!--最新查询-->
 
         <action name="cookie" class="com.ssh.action.LookCookie">
             <result name="look">/error.jsp</result>

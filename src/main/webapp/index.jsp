@@ -1,8 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html>
 <html class="root-view">
 <head>
     <meta charset="UTF-8">
+    <base href="basePath">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>树洞——你的心情驿站</title>
     <link href="images/shu.png" rel="shortcut icon" />
@@ -17,7 +25,7 @@
             <img src="images/shu.png" alt="">
             <span class="deng">登录</span>
         </a>
-        <span class="welcome"><a href="">伤天害理</a>，欢迎你</span>
+        <span class="welcome"><a href="Person_Center_Check.jsp">伤天害理</a>，欢迎你</span>
         <span class="quit">退出</span>
         <span class="nav-switch"></span>
         <nav class="nav">
@@ -57,36 +65,22 @@
         <h2 class="article-title">
             Posts
         </h2>
-        <div class="kuang">
-            <ul class="article-list">
-                <li>
-                    <a href="" class="article-item">
-                        <h3><span>Time : 2018-01-01</span>伤天害理</h3>
-                        <p>每当接受用户输入的内容并重新显示这些内容时，网站就很容易遭受 JavaScript 注入攻击。让我们研究一个容易遭受 JavaScript 注入攻击的具体应用程序。假设已经创建了一个客户反馈网站。客户可以访问网站并输入对产品的反馈信息。当客户提交反馈时，反馈信息重新显示在反馈页面上。</p>
-                    </a>
-                </li>
-                <li class="xia">
-                    <div class="zan"><span class="jia1">👍 <b>0</b></span><span class="jia2">👎 <b>0</b></span>
-                        <span class="comm-p">评论</span>
-                        <span class="fenX">分享
-								<div class="fen">
-									<a href="">新浪微博</a>
-									<a href="">QQ空间</a>
-									<a href="">腾讯微博</a>
-								</div>
-							</span>
-                    </div>
-                    <div class="comm">
-                        <hr>
-                        <ul class="list">
+        <P>1</P>
+        <P>2</P>
+        <P>3</P>
+        <s:iterator value="posts">
+            <p><s:property value="postid"/></p>
+            <p><s:property value="text"/></p>
+            <p><s:property value="posts.isboutique"/></p>
+        </s:iterator>
+        <%--<c:forEach items="${List}" var="" varStatus="status">--%>
+            <%--<tr>--%>
+                <%--<td>${List.postid}</td>--%>
+                <%--<td>${List.title}</td>--%>
+                <%--<td>${List.text}</td>--%>
+            <%--</tr>--%>
+        <%--</c:forEach>--%>
 
-                        </ul>
-                        <textarea name="" class="ping" cols="30" rows="10">请不要发表与本内容无关的评论，您有了账号就是有身份的人了，我们可认识您。</textarea>
-                        <button class="fa">发表</button>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
         <div class="kuang">
             <ul class="article-list">
@@ -118,6 +112,7 @@
                 </li>
             </ul>
         </div>
+
 
         <section class="load-more">
             <a href="">加载更多</a>

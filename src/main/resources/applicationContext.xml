@@ -66,21 +66,7 @@
     <!--实体类在这里!!!!!!!!!!!-->
     <bean id="user" class="com.ssh.entity.User" scope="prototype">
     </bean>
+    <bean id="post" class="com.ssh.entity.Post" scope="prototype">
+    </bean>
 
-    <!--Dao类这里！！！！！！,不用spring注入再使用这些-->
-    <!--<bean id="LoginDao" class="com.ssh.dao.impl.UserDaoimpl" scope="prototype">-->
-    <!--</bean>-->
-
-
-    <!--hibernate类在这里！！！！-->
-    <!--<bean id="sessionfactroy" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" scope="singleton">-->
-        <!--<property name="configLocation" >-->
-            <!--<value>-->
-                <!--classpath:hibernate.cfg.xml-->
-            <!--</value>-->
-        <!--</property>-->
-    <!--</bean>-->
-
-
-    <!--<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>-->
 </beans>
