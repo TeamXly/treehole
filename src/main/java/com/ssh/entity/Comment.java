@@ -1,18 +1,20 @@
 package com.ssh.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
 public class Comment {
     private int commentid;
-    private Date publishedtime;
+    private Timestamp publishedtime;
     private String text;
     private Integer postid;
     private Integer userid;
     private Post postByPostid;
+    private Post postByPostid_0;
     private User userByUserid;
+    private User userByUserid_0;
 
     @Id
     @Column(name = "commentid", nullable = false)
@@ -26,11 +28,11 @@ public class Comment {
 
     @Basic
     @Column(name = "publishedtime", nullable = false)
-    public Date getPublishedtime() {
+    public Timestamp getPublishedtime() {
         return publishedtime;
     }
 
-    public void setPublishedtime(Date publishedtime) {
+    public void setPublishedtime(Timestamp publishedtime) {
         this.publishedtime = publishedtime;
     }
 
@@ -83,7 +85,7 @@ public class Comment {
     }
 
     @ManyToOne
-    @JoinColumn(name = "postid", referencedColumnName = "postid",insertable = false,updatable = false)
+    @JoinColumn(name = "postid", referencedColumnName = "postid")
     public Post getPostByPostid() {
         return postByPostid;
     }
@@ -93,12 +95,32 @@ public class Comment {
     }
 
     @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "userid",insertable = false,updatable = false)
+    @JoinColumn(name = "postid", referencedColumnName = "postid")
+    public Post getPostByPostid_0() {
+        return postByPostid_0;
+    }
+
+    public void setPostByPostid_0(Post postByPostid_0) {
+        this.postByPostid_0 = postByPostid_0;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
     public User getUserByUserid() {
         return userByUserid;
     }
 
     public void setUserByUserid(User userByUserid) {
         this.userByUserid = userByUserid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    public User getUserByUserid_0() {
+        return userByUserid_0;
+    }
+
+    public void setUserByUserid_0(User userByUserid_0) {
+        this.userByUserid_0 = userByUserid_0;
     }
 }

@@ -1,14 +1,14 @@
 package com.ssh.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 public class Post {
     private int postid;
-    private Date publishedtime;
+    private Timestamp publishedtime;
     private String title;
     private String text;
     private int like;
@@ -16,7 +16,9 @@ public class Post {
     private boolean isboutique;
     private Integer userid;
     private Collection<Comment> commentsByPostid;
+    private Collection<Comment> commentsByPostid_0;
     private User userByUserid;
+    private User userByUserid_0;
 
     @Id
     @Column(name = "postid", nullable = false)
@@ -30,11 +32,11 @@ public class Post {
 
     @Basic
     @Column(name = "publishedtime", nullable = false)
-    public Date getPublishedtime() {
+    public Timestamp getPublishedtime() {
         return publishedtime;
     }
 
-    public void setPublishedtime(Date publishedtime) {
+    public void setPublishedtime(Timestamp publishedtime) {
         this.publishedtime = publishedtime;
     }
 
@@ -89,7 +91,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "userid", nullable = true,insertable = false,updatable = false)
+    @Column(name = "userid", nullable = true)
     public Integer getUserid() {
         return userid;
     }
@@ -128,6 +130,15 @@ public class Post {
         this.commentsByPostid = commentsByPostid;
     }
 
+    @OneToMany(mappedBy = "postByPostid_0")
+    public Collection<Comment> getCommentsByPostid_0() {
+        return commentsByPostid_0;
+    }
+
+    public void setCommentsByPostid_0(Collection<Comment> commentsByPostid_0) {
+        this.commentsByPostid_0 = commentsByPostid_0;
+    }
+
     @ManyToOne
     @JoinColumn(name = "userid", referencedColumnName = "userid")
     public User getUserByUserid() {
@@ -136,5 +147,15 @@ public class Post {
 
     public void setUserByUserid(User userByUserid) {
         this.userByUserid = userByUserid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    public User getUserByUserid_0() {
+        return userByUserid_0;
+    }
+
+    public void setUserByUserid_0(User userByUserid_0) {
+        this.userByUserid_0 = userByUserid_0;
     }
 }

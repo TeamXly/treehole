@@ -13,7 +13,9 @@ public class User {
     private String type;
     private String phone;
     private Collection<Comment> commentsByUserid;
+    private Collection<Comment> commentsByUserid_0;
     private Collection<Post> postsByUserid;
+    private Collection<Post> postsByUserid_0;
 
     @Id
     @Column(name = "userid", nullable = false)
@@ -103,6 +105,15 @@ public class User {
         this.commentsByUserid = commentsByUserid;
     }
 
+    @OneToMany(mappedBy = "userByUserid_0")
+    public Collection<Comment> getCommentsByUserid_0() {
+        return commentsByUserid_0;
+    }
+
+    public void setCommentsByUserid_0(Collection<Comment> commentsByUserid_0) {
+        this.commentsByUserid_0 = commentsByUserid_0;
+    }
+
     @OneToMany(mappedBy = "userByUserid")
     public Collection<Post> getPostsByUserid() {
         return postsByUserid;
@@ -110,5 +121,14 @@ public class User {
 
     public void setPostsByUserid(Collection<Post> postsByUserid) {
         this.postsByUserid = postsByUserid;
+    }
+
+    @OneToMany(mappedBy = "userByUserid_0")
+    public Collection<Post> getPostsByUserid_0() {
+        return postsByUserid_0;
+    }
+
+    public void setPostsByUserid_0(Collection<Post> postsByUserid_0) {
+        this.postsByUserid_0 = postsByUserid_0;
     }
 }
