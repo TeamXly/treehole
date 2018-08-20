@@ -2,12 +2,14 @@ package com.ssh.dao;
 
 import com.ssh.entity.User;
 
+import java.util.List;
+
 public interface UserDao {
     /**
      * @param user
      * 登录
      */
-    public Object[] login(User user);
+    public List login(User user);
 
     /**
      * 注册

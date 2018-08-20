@@ -6,6 +6,8 @@ import com.ssh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("UserService")//@Service用于标注业务层组件，说明这个类是业务层组件,名字无所谓
 public class UserServiceImpl implements UserService {
     @Autowired private UserDao userDao;
@@ -20,7 +22,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Object[] login(User user){
+    public List login(User user){
         return this.userDao.login(user);
     }
 }

@@ -1,9 +1,8 @@
 package com.ssh.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class User {
@@ -13,9 +12,11 @@ public class User {
     private String email;
     private String type;
     private String phone;
+    private Collection<Comment> commentsByUserid;
+    private Collection<Post> postsByUserid;
 
     @Id
-    @Column(name = "userid")
+    @Column(name = "userid", nullable = false)
     public int getUserid() {
         return userid;
     }
@@ -25,7 +26,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "username")
+    @Column(name = "username", nullable = false, length = 50)
     public String getUsername() {
         return username;
     }
@@ -35,7 +36,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, length = 50)
     public String getPassword() {
         return password;
     }
@@ -45,7 +46,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "Email")
+    @Column(name = "Email", nullable = false, length = 50)
     public String getEmail() {
         return email;
     }
@@ -55,7 +56,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "type")
+    @Column(name = "type", nullable = false, length = 20)
     public String getType() {
         return type;
     }
@@ -65,7 +66,7 @@ public class User {
     }
 
     @Basic
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false, length = 11)
     public String getPhone() {
         return phone;
     }
@@ -78,27 +79,36 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         User user = (User) o;
-
-        if (userid != user.userid) return false;
-        if (username != null ? !username.equals(user.username) : user.username != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (email != null ? !email.equals(user.email) : user.email != null) return false;
-        if (type != null ? !type.equals(user.type) : user.type != null) return false;
-        if (phone != null ? !phone.equals(user.phone) : user.phone != null) return false;
-
-        return true;
+        return userid == user.userid &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(type, user.type) &&
+                Objects.equals(phone, user.phone);
     }
 
     @Override
     public int hashCode() {
-        int result = userid;
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        return result;
+
+        return Objects.hash(userid, username, password, email, type, phone);
+    }
+
+    @OneToMany(mappedBy = "userByUserid")
+    public Collection<Comment> getCommentsByUserid() {
+        return commentsByUserid;
+    }
+
+    public void setCommentsByUserid(Collection<Comment> commentsByUserid) {
+        this.commentsByUserid = commentsByUserid;
+    }
+
+    @OneToMany(mappedBy = "userByUserid")
+    public Collection<Post> getPostsByUserid() {
+        return postsByUserid;
+    }
+
+    public void setPostsByUserid(Collection<Post> postsByUserid) {
+        this.postsByUserid = postsByUserid;
     }
 }

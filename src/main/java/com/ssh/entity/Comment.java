@@ -1,19 +1,21 @@
 package com.ssh.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.Objects;
 
 @Entity
 public class Comment {
     private int commentid;
     private Date publishedtime;
     private String text;
+    private Integer postid;
+    private Integer userid;
+    private Post postByPostid;
+    private User userByUserid;
 
     @Id
-    @Column(name = "commentid")
+    @Column(name = "commentid", nullable = false)
     public int getCommentid() {
         return commentid;
     }
@@ -23,7 +25,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "publishedtime")
+    @Column(name = "publishedtime", nullable = false)
     public Date getPublishedtime() {
         return publishedtime;
     }
@@ -33,7 +35,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "text")
+    @Column(name = "text", nullable = false, length = -1)
     public String getText() {
         return text;
     }
@@ -42,26 +44,61 @@ public class Comment {
         this.text = text;
     }
 
+    @Basic
+    @Column(name = "postid", nullable = true)
+    public Integer getPostid() {
+        return postid;
+    }
+
+    public void setPostid(Integer postid) {
+        this.postid = postid;
+    }
+
+    @Basic
+    @Column(name = "userid", nullable = true)
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Comment comment = (Comment) o;
-
-        if (commentid != comment.commentid) return false;
-        if (publishedtime != null ? !publishedtime.equals(comment.publishedtime) : comment.publishedtime != null)
-            return false;
-        if (text != null ? !text.equals(comment.text) : comment.text != null) return false;
-
-        return true;
+        return commentid == comment.commentid &&
+                Objects.equals(publishedtime, comment.publishedtime) &&
+                Objects.equals(text, comment.text) &&
+                Objects.equals(postid, comment.postid) &&
+                Objects.equals(userid, comment.userid);
     }
 
     @Override
     public int hashCode() {
-        int result = commentid;
-        result = 31 * result + (publishedtime != null ? publishedtime.hashCode() : 0);
-        result = 31 * result + (text != null ? text.hashCode() : 0);
-        return result;
+
+        return Objects.hash(commentid, publishedtime, text, postid, userid);
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "postid", referencedColumnName = "postid",insertable = false,updatable = false)
+    public Post getPostByPostid() {
+        return postByPostid;
+    }
+
+    public void setPostByPostid(Post postByPostid) {
+        this.postByPostid = postByPostid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "userid",insertable = false,updatable = false)
+    public User getUserByUserid() {
+        return userByUserid;
+    }
+
+    public void setUserByUserid(User userByUserid) {
+        this.userByUserid = userByUserid;
     }
 }

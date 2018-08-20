@@ -1,10 +1,9 @@
 package com.ssh.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Post {
@@ -15,9 +14,12 @@ public class Post {
     private int like;
     private int dislike;
     private boolean isboutique;
+    private Integer userid;
+    private Collection<Comment> commentsByPostid;
+    private User userByUserid;
 
     @Id
-    @Column(name = "postid")
+    @Column(name = "postid", nullable = false)
     public int getPostid() {
         return postid;
     }
@@ -27,7 +29,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "publishedtime")
+    @Column(name = "publishedtime", nullable = false)
     public Date getPublishedtime() {
         return publishedtime;
     }
@@ -37,7 +39,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "title")
+    @Column(name = "title", nullable = false, length = 200)
     public String getTitle() {
         return title;
     }
@@ -47,7 +49,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "text")
+    @Column(name = "text", nullable = false, length = -1)
     public String getText() {
         return text;
     }
@@ -57,7 +59,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "like")
+    @Column(name = "like", nullable = false)
     public int getLike() {
         return like;
     }
@@ -67,7 +69,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "dislike")
+    @Column(name = "dislike", nullable = false)
     public int getDislike() {
         return dislike;
     }
@@ -77,7 +79,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "isboutique")
+    @Column(name = "isboutique", nullable = false)
     public boolean isIsboutique() {
         return isboutique;
     }
@@ -86,34 +88,53 @@ public class Post {
         this.isboutique = isboutique;
     }
 
+    @Basic
+    @Column(name = "userid", nullable = true,insertable = false,updatable = false)
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Post post = (Post) o;
-
-        if (postid != post.postid) return false;
-        if (like != post.like) return false;
-        if (dislike != post.dislike) return false;
-        if (isboutique != post.isboutique) return false;
-        if (publishedtime != null ? !publishedtime.equals(post.publishedtime) : post.publishedtime != null)
-            return false;
-        if (title != null ? !title.equals(post.title) : post.title != null) return false;
-        if (text != null ? !text.equals(post.text) : post.text != null) return false;
-
-        return true;
+        return postid == post.postid &&
+                like == post.like &&
+                dislike == post.dislike &&
+                isboutique == post.isboutique &&
+                Objects.equals(publishedtime, post.publishedtime) &&
+                Objects.equals(title, post.title) &&
+                Objects.equals(text, post.text) &&
+                Objects.equals(userid, post.userid);
     }
 
     @Override
     public int hashCode() {
-        int result = postid;
-        result = 31 * result + (publishedtime != null ? publishedtime.hashCode() : 0);
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (text != null ? text.hashCode() : 0);
-        result = 31 * result + like;
-        result = 31 * result + dislike;
-        result = 31 * result + (isboutique ? 1 : 0);
-        return result;
+
+        return Objects.hash(postid, publishedtime, title, text, like, dislike, isboutique, userid);
+    }
+
+    @OneToMany(mappedBy = "postByPostid")
+    public Collection<Comment> getCommentsByPostid() {
+        return commentsByPostid;
+    }
+
+    public void setCommentsByPostid(Collection<Comment> commentsByPostid) {
+        this.commentsByPostid = commentsByPostid;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    public User getUserByUserid() {
+        return userByUserid;
+    }
+
+    public void setUserByUserid(User userByUserid) {
+        this.userByUserid = userByUserid;
     }
 }

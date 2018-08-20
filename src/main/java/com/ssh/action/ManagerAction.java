@@ -13,9 +13,11 @@ public class ManagerAction extends ActionSupport {
     @Autowired
     ManagerService managerService;
 
+
     public String addFine(Post post) {
         return SUCCESS;
     }
+
 
     public String deletePost(Post post) {
         return SUCCESS;

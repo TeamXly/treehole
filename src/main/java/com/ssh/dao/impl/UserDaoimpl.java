@@ -21,13 +21,12 @@ public class UserDaoimpl implements UserDao {
     @Autowired private SessionFactory sessionFactory;
 
     @Override
-    public Object[] login(User user){
+    public List login(User user){
         String sql="select password,username from user where phone=?";
         Query query=sessionFactory.getCurrentSession().createSQLQuery(sql);
         query.setString(1,user.getPhone());
         List list=query.list();
-        Object[] obj=(Object[])list.get(0);
-        return obj;
+        return list;
     }
     public boolean add(User user){
         Session session=sessionFactory.openSession().getSession();

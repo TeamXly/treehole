@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
+import java.util.List;
 
 @Controller("UserAction")//@Controller用于标注控制层组件，说明这个类是控制层组件
 @Scope("prototype")
@@ -21,11 +21,11 @@ public class LoginAction extends ActionSupport {
     private User user;
 
     public String login(){
-        Object[] obj=userService.login(user);
-        if (user.getPassword().equals(obj[0])){
+        List list=userService.login(user);
+        if (user.getPassword().equals(list.get(0))){
             HttpServletResponse response = ServletActionContext.getResponse();
             //设置cookie
-            Cookie username = new Cookie("username",(String)obj[1]);
+            Cookie username = new Cookie("username",(String)list.get(0));
             response.addCookie(username);
             username.setMaxAge(-1);
             return SUCCESS;
