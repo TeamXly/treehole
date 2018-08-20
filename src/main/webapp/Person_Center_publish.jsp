@@ -8,15 +8,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>个人中心 发布</title>
 	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 	<link rel="stylesheet" type="text/css" href="css/demo.css">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style1.css">
 	<link href="css/buttons.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	
 
 </head>
 
@@ -47,7 +48,7 @@
 			</h2>
 			<div class="block">
 				<div>
-					<form method="" action="publishpost">
+					<form id="my_From" method="" action="publishpost">
 						<table>
 							<tbody>
 								<tr>
@@ -55,7 +56,7 @@
 										标题:
 									</td>
 									<td>
-										<input type="text" placeholder="Title" style="border-radius: 10px;height: 35px;width: 200px;margin: 10px 0;">
+										<input  class="init" maxlength="6" type="text" placeholder="Title" style="border-radius: 10px;height: 35px;width: 200px;margin: 10px 0;outline: none;">
 									</td>
 									<td>
 									</td>
@@ -65,7 +66,8 @@
 										内容:
 									</td>
 									<td>
-										<textarea rows="4" style="border-radius: 10px; width: 500px;height: 200px;margin: 10px 0px"></textarea>
+										<textarea class="init" maxlength="100" rows="4" style="border-radius: 10px; width: 500px;height: 200px;margin: 10px 0px;
+										outline: none;resize: none;"></textarea>
 									</td>
 								</tr>
 								<tr>
@@ -84,18 +86,34 @@
 			</div>
 
 		</section>
+	</main>
 
 		<script src='js/velocity.min.js'></script>
 		<script src='js/sideToggleExtended.js'></script>
 		<script type="text/javascript">
+			var Error_msg;
 			$(document).ready(function() {
 				$('#sideMenu').sideToggle({
 					moving: '#sideMenuContainer',
 					direction: 'right'
 				});
+
+				$('#my_From input').blur(function () {
+					$parent=$(this).parent();
+                    $parent.find(".onError").remove();
+					if($(this).val()==''){
+					    Error_msg='输入标题不能为空';
+					    $parent.append('<span class="onError">'+Error_msg+'</span>');
+					}else if($(this).val().length==6){
+                        Error_msg='标题不能超过6个字';
+                        $parent.append('<span class="onError">'+Error_msg+'</span>');
+					}
+                }).keyup(function () {
+                    $(this).triggerHandler('blur');
+                }).focus(function () {
+					$(this).triggerHandler('blur');
+                })
 			});
 		</script>
-
-</body>
-
+	</body>
 </html>
