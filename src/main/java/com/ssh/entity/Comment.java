@@ -47,7 +47,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "postid", nullable = true,insertable = false,updatable = false)
+    @Column(name = "postid", nullable = true)
     public Integer getPostid() {
         return postid;
     }
@@ -57,7 +57,7 @@ public class Comment {
     }
 
     @Basic
-    @Column(name = "userid", nullable = true,insertable = false,updatable = false)
+    @Column(name = "userid", nullable = true)
     public Integer getUserid() {
         return userid;
     }

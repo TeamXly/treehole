@@ -61,7 +61,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "like", nullable = false)
+    @Column(name = "t_like", nullable = false)
     public int getLike() {
         return like;
     }
@@ -91,7 +91,7 @@ public class Post {
     }
 
     @Basic
-    @Column(name = "userid", nullable = true,insertable = false,updatable = false)
+    @Column(name = "userid", nullable = true)
     public Integer getUserid() {
         return userid;
     }
