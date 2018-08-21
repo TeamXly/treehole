@@ -65,29 +65,29 @@
         <h2 class="article-title">
             Posts
         </h2>
-        <P>1</P>
-        <P>2</P>
-        <P>3</P>
+
         <s:iterator value="posts">
-            <p><s:property value="postid"/></p>
-            <p><s:property value="text"/></p>
-            <p><s:property value="posts.isboutique"/></p>
-        </s:iterator>
-        <%--<c:forEach items="${List}" var="" varStatus="status">--%>
-            <%--<tr>--%>
-                <%--<td>${List.postid}</td>--%>
-                <%--<td>${List.title}</td>--%>
-                <%--<td>${List.text}</td>--%>
-            <%--</tr>--%>
-        <%--</c:forEach>--%>
-
-
+            <%--<s:property value="publishedtime"/></br>--%>
+            <%--<s:property value="text"/></br>--%>
+            <%--<s:property value="tit"/></br>--%>
+            <%--<s:property value="text"/></br>--%>
+            <%--<s:property value="like"/></br>--%>
+            <%--<s:property value="dislike"/></br>--%>
+            <%--<s:property value="isboutique"/></br>--%>
+            <%--<s:property value="userid"/></br>--%>
         <div class="kuang">
             <ul class="article-list">
                 <li>
                     <a href="" class="article-item">
-                        <h3><span>Time : 2018-01-01</span>伤天害理</h3>
-                        <p>每当接受用户输入的内容并重新显示这些内容时，网站就很容易遭受 JavaScript 注入攻击。让我们研究一个容易遭受 JavaScript 注入攻击的具体应用程序。假设已经创建了一个客户反馈网站。客户可以访问网站并输入对产品的反馈信息。当客户提交反馈时，反馈信息重新显示在反馈页面上。</p>
+                        <h3><span>Time :
+                            <s:if test="publishedtime.length() > 15">
+                                <s:property value="publishedtime.substring(0,14)"/>...
+                            </s:if>
+                            <s:else>
+                                <s:property value="publishedtime"/>
+                            </s:else>
+                            </span><s:property value="title"/></h3>
+                        <p><s:property value="text"/></p>
                     </a>
                 </li>
                 <li class="xia">
@@ -112,7 +112,7 @@
                 </li>
             </ul>
         </div>
-
+        </s:iterator>
 
         <section class="load-more">
             <a href="">加载更多</a>

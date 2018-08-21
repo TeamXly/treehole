@@ -15,21 +15,27 @@ import java.util.List;
 @Controller("PostAction")
 @Scope("prototype")
 public class PostAction extends ActionSupport{
-   // private Post post;
+    private Post post;
     @Autowired
     private PostService ser;
 
+ public Post getPost() {
+  return post;
+ }
 
-    @Action(value = "/post",results = {
+ public void setPost(Post post) {
+  this.post = post;
+ }
+
+ @Action(value = "/post",results = {
             @Result(name = "success", location = "/index.jsp")
 //            @Result(name = "input", location = "/index.jsp")
     })
     @Override
     public String execute() throws Exception {
-        List<Post> posts = ser.findAll();
+       List<Post> posts = ser.findAll();
         ActionContext.getContext().put("posts",posts);
+        System.out.println("会不会出现"+posts);
         return SUCCESS;
     }
-
-
 }
