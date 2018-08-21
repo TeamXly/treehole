@@ -38,10 +38,10 @@
                     <a href="">最新</a>
                 </li>
                 <li>
-                    <a href="">审帖</a>
+                    <a href="Auditing.jsp">审帖</a>
                 </li>
                 <li>
-                    <a href="">发表</a>
+                    <a href="Person_Center_publish.jsp">发表</a>
                 </li>
                 <li>
                     <a href="Person_Center_Check.jsp">个人中心</a>
