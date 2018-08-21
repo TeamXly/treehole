@@ -31,6 +31,7 @@ public class PostAction extends ActionSupport{
             @Result(name = "success", location = "/main.jsp")
 //            @Result(name = "input", location = "/index.jsp")
     })
+
     @Override
     public String execute() throws Exception {
        List<Post> posts = ser.findAll();

@@ -143,7 +143,7 @@
     </label>
 </form>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript">
 
     var oForm = document.getElementById('reg-form'),
         oInputs = oForm.getElementsByTagName('input');
@@ -229,6 +229,7 @@
             oInputs[i].focus();
             oInputs[i].blur();//主动失去焦点触发
         }
+
         var errors = this.getElementsByClassName('error');
 
         if(errors.length === 0){

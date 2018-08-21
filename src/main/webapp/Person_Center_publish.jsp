@@ -35,8 +35,8 @@
 
 <div id="sideMenuContainer">
 	<h2>个人中心</h2>
-	<a href="#" title="查看发言 "><span class="fa fa-bolt"></span></a>
-	<a href="#" title="发布"><span class="fa fa-exclamation-circle"></span></a>
+	<a href="Person_Center_Check.jsp" title="查看发言 "><span class="fa fa-bolt"></span></a>
+	<a href="Person_Center_publish.jsp" title="发布"><span class="fa fa-exclamation-circle"></span></a>
 </div>
 
 <!--中间-->

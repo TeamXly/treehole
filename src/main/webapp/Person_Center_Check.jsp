@@ -19,8 +19,10 @@
 <body>
 
 	<nav>
-		<a href="#" id="userPLink">
-			<span class="fa fa-user"></span> 名字
+		<a href="Person_Center_Check.jsp" id="userPLink">
+			<span class="fa fa-user"></span>
+			<span class="Person_Center_Username">名字</span>
+			<span class="Person_Center_Cookie"></span>
 		</a>
 		<div id="sideMenu">
 			<span class="fa fa-navicon" id="sideMenuClosed"></span>
@@ -95,12 +97,20 @@
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script src='js/velocity.min.js'></script>
 	<script src='js/sideToggleExtended.js'></script>
+	<script src="js/jquery.cookie.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#sideMenu').sideToggle({
 				moving: '#sideMenuContainer',
 				direction: 'right'
 			});
+
+            var username=$.cookie('username');
+            if(username!=null){
+                $('.Person_Center_Username').hide();
+                $('.Person_Center_Cookie').show();
+                $('.Person_Center_Cookie').html(username);
+            }
 		});
 	</script>
 
