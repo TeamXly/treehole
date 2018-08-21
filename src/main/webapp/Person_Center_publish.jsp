@@ -56,7 +56,7 @@
 								标题:
 							</td>
 							<td>
-								<input name="post.title" class="init" maxlength="6" type="text" placeholder="Title" style="border-radius: 10px;height: 35px;width: 200px;margin: 10px 0;outline: none;">
+								<input name="post.title" class="init" maxlength="15" type="text" placeholder="Title" style="border-radius: 10px;height: 35px;width: 200px;margin: 10px 0;outline: none;">
 							</td>
 							<td>
 							</td>
@@ -104,8 +104,8 @@
             if($(this).val()==''){
                 Error_msg='输入标题不能为空';
                 $parent.append('<span class="onError">'+Error_msg+'</span>');
-            }else if($(this).val().length==6){
-                Error_msg='标题不能超过6个字';
+            }else if($(this).val().length==15){
+                Error_msg='标题不能超过15个字';
                 $parent.append('<span class="onError">'+Error_msg+'</span>');
             }
         }).keyup(function () {

@@ -28,7 +28,7 @@ public class PostAction extends ActionSupport{
  }
 
  @Action(value = "/post",results = {
-            @Result(name = "success", location = "/index.jsp")
+            @Result(name = "success", location = "/main.jsp")
 //            @Result(name = "input", location = "/index.jsp")
     })
     @Override

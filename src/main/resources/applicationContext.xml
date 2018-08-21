@@ -23,7 +23,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/treehole?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8" />
         <property name="username" value="root" />
-        <property name="password" value="1111" />
+        <property name="password" value="123456" />
         <!-- 配置监控统计拦截的filters -->
         <property name="filters" value="stat" />
 
