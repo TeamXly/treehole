@@ -47,7 +47,6 @@ for(var i = 0,iL = checkAttr.length;i < iL;i++){
 // oInputs[0].focus();
 //表单提交
 oForm.addEventListener('submit',function(e){
-
     for (var i = 0,iL = oInputs.length; i < iL;i++) {
         oInputs[i].focus();
         oInputs[i].blur();//主动失去焦点触发
@@ -67,7 +66,6 @@ oForm.addEventListener('submit',function(e){
         oForm.action = "login";
         oForm.submit();
     }else{
-
         console.log('验证失败不可以提交')
     }
     e.preventDefault();
@@ -78,6 +76,7 @@ function hintsShow(ele,blooe,str){
     ele.className = blooe ? 'success' : 'error';
     ele.innerHTML = str;
 }
+
 
 $(".comm-p").on("click",function() {
     var $this = $(this),

@@ -56,6 +56,7 @@ $(".jia1").one("click",function() {
     $b.text($b.val());
     return false;
 });
+
 $(".jia2").one("click",function() {
     var $this = $(this);
     var $b = $this.find("b");
@@ -65,6 +66,26 @@ $(".jia2").one("click",function() {
 
     return false;
 });
+
+$(".zan span:eq(0)").on('click',function () {
+    console.log("点击事件成功");
+    var $this = $(this);
+    var $b = $this.find("b");
+    var num = parseInt($b.val()) || 0;
+    console.log(num);
+$.ajax({
+    url:"publishpost",
+    type:'POST',
+    data:{
+        dianzan:1
+    },
+    dataType:'json',
+    success:function (data) {
+        console.log("提交成功");
+    }
+})
+})
+
 
 $(".fenX").hover(function() {
     var $this = $(this),

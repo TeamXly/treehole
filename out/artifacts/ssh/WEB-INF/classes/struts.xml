@@ -10,14 +10,29 @@
     <constant name="struts.objectFactory" value="spring" />
 
     <package name="ssh" namespace="/" extends="struts-default">
-
+        <!--登录注册-->
         <action name="login" class="com.ssh.action.LoginAction" method="login">
-            <result name="success">/success.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success">/index.jsp</result>
+            <result name="error">/redirect/loginerror.jsp</result>
         </action>
+
+        <action name="register" class="com.ssh.action.LoginAction" method="register">
+            <result name="success">/index.jsp</result>
+            <result name="error">/redirect/registererror.jsp</result>
+        </action>
+
+        <!--发表帖子和发表回复-->
+        <action name="publishpost" class="com.ssh.action.AddAction" method="addPost">
+            <result name="success">/Person_Center_Check.jsp</result>
+            <result name="error">/Person_Center_publish.jsp</result>
+        </action>
+        <!--<action name="actionSupport" class="com.ssh.action.PostAction" method="list">-->
+            <!--<result name="success">/index.jsp</result>-->
+        <!--</action>-->
+
+        <!--最新查询-->
         <action name="cookie" class="com.ssh.action.LookCookie">
             <result name="look">/error.jsp</result>
         </action>
-
     </package>
 </struts>
