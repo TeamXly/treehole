@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+<link href="images/shu.png" rel="shortcut icon" />
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>注册</title>
     <style type="text/css">
         *{
             margin: 0;
@@ -88,7 +89,7 @@
 </head>
 <body>
 <div class="login">
-    <a href="load.html">登录</a>
+    <a href="index.jsp">首页</a>
 </div>
 <form class="reg-form" id="reg-form" method="post">
     <label class="form-item">

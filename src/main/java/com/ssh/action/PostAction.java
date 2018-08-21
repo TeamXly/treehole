@@ -35,7 +35,6 @@ public class PostAction extends ActionSupport{
     public String execute() throws Exception {
        List<Post> posts = ser.findAll();
         ActionContext.getContext().put("posts",posts);
-        System.out.println("会不会出现"+posts);
         return SUCCESS;
     }
 }

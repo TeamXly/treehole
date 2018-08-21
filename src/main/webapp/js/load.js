@@ -37,7 +37,6 @@ $(".logo").on("click",function() {
 });
 
 
-
 $(".qu").on("click",function() {
     $("#box").hide(300);
     return false;
@@ -48,10 +47,11 @@ $(".zu").on("click",function() {
     $("#box").hide(300);
 });
 
+
 $(".jia1").one("click",function() {
     var $this = $(this);
     var $b = $this.find("b");
-    var num = parseInt($b.val()) || 0;
+    var num = parseInt($b.text()) || 0;
     $b.val(num+1);
     $b.text($b.val());
     return false;
@@ -59,7 +59,7 @@ $(".jia1").one("click",function() {
 $(".jia2").one("click",function() {
     var $this = $(this);
     var $b = $this.find("b");
-    var num = parseInt($b.val()) || 0;
+    var num = parseInt($b.text()) || 0;
     $b.val(num+1);
     $b.text($b.val());
 
