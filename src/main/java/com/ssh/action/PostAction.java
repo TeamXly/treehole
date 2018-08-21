@@ -28,14 +28,14 @@ public class PostAction extends ActionSupport{
  }
 
  @Action(value = "/post",results = {
-            @Result(name = "success", location = "/index.jsp")
+            @Result(name = "success", location = "/main.jsp")
 //            @Result(name = "input", location = "/index.jsp")
     })
     @Override
     public String execute() throws Exception {
        List<Post> posts = ser.findAll();
         ActionContext.getContext().put("posts",posts);
-        System.out.println("会不会出现"+posts);
+       // System.out.println("会不会出现"+posts);
         return SUCCESS;
     }
 }

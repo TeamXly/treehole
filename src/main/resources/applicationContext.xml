@@ -64,9 +64,9 @@
 
 
     <!--实体类在这里!!!!!!!!!!!-->
-    <bean id="user" class="com.ssh.entity.User" scope="prototype">
-    </bean>
-    <bean id="post" class="com.ssh.entity.Post" scope="prototype">
-    </bean>
+    <!--<bean id="user" class="com.ssh.entity.User" scope="prototype">-->
+    <!--</bean>-->
+    <!--<bean id="post" class="com.ssh.entity.Post" scope="prototype">-->
+    <!--</bean>-->
 
 </beans>

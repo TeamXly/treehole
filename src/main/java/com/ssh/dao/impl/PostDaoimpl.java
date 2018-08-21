@@ -25,8 +25,7 @@ public class PostDaoimpl extends HibernateDaoSupport implements PostDao {
     }
     @Override
     public List<Post> findAll() {
-
-       return (List<Post>) getHibernateTemplate().find("from Post");
+       return (List<Post>) getHibernateTemplate().find("from Post ORDER BY publishedtime desc ");
 
     }
 }
