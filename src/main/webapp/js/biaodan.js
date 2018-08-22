@@ -98,8 +98,11 @@ $(".ping").focus(function() {
 $(".fa").on("click",function(){
     var $this = $(this),
         ff = $this.parent(),
+        $input = ff.find("input"),
         oList = ff.find("ul"),
         oping = ff.find(".ping");
+    var postid = $input.val();
+    console.log(postid);
     var val = oping.val();
     if(val != ""){
         var jie = "<li><span><img src='images/f_noface.png' alt=''></span><span>"+val+"</span></li><hr>";
@@ -108,9 +111,13 @@ $(".fa").on("click",function(){
         $.ajax({
             url:'#',
             type:'post',
-            data:{"val":val},
+            datatype:"json",
+            data:
+            {"val":val,
+             "postid":postid
+            },
             success:function(){
-                console.log(val);
+                console.log("成功");
             }
         });
     }

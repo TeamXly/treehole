@@ -94,6 +94,7 @@
                             <hr>
                             <ul class="list">
                             </ul>
+                            <input type="hidden" value="<s:property value="postid"/>">
                             <textarea name="textarea" class="ping" cols="30" rows="10">请不要发表与本内容无关的评论，您有了账号就是有身份的人了，我们可认识您。</textarea>
                             <button class="fa">发表</button>
                         </div>
