@@ -76,7 +76,7 @@ body{
 .header-bg{
 	position: relative;
 	overflow: hidden;
-	background: url(../images/header-bg.jpg) no-repeat;
+	background: url(../images/header-bg.jpg) repeat-x;
 	/*background: #e9eaed;*/
 }
 .header-bg::before{

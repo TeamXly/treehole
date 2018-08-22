@@ -66,7 +66,7 @@
 								内容:
 							</td>
 							<td>
-										<textarea name="post.text" class="init" maxlength="100" rows="4" style="border-radius: 10px; width: 500px;height: 200px;margin: 10px 0px;
+								<textarea id="md_editor" name="post.text" class="init" maxlength="100" rows="4" style="border-radius: 10px; width: 500px;height: 200px;margin: 10px 0px;
 										outline: none;resize: none;"></textarea>
 							</td>
 						</tr>
@@ -90,6 +90,7 @@
 
 <script src='js/velocity.min.js'></script>
 <script src='js/sideToggleExtended.js'></script>
+<script type="text/javascript" src="js/mditor.js"></script>
 <script type="text/javascript">
     var Error_msg;
     $(document).ready(function() {
@@ -114,6 +115,9 @@
             $(this).triggerHandler('blur');
         })
     });
+
+    var ele_textarea = document.getElementById('md_editor');
+    var editor = new mditor(ele_textarea);
 </script>
 </body>
 </html>

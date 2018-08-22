@@ -67,7 +67,7 @@
                         <div class="article-item">
                             <h3><span>Time :
                             <s:if test="publishedtime.length()>1">
-                                <s:property value="publishedtime.substring(0,14)"/>
+                                <s:property value="publishedtime.substring(0,2)"/>
                             </s:if>
                             <s:else>
                                 <s:property value="publishedtime"/>

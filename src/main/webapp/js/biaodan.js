@@ -104,5 +104,14 @@ $(".fa").on("click",function(){
     if(val != ""){
         var jie = "<li><span><img src='images/f_noface.png' alt=''></span><span>"+val+"</span></li><hr>";
         oList.append(jie);
+
+        $.ajax({
+            url:'#',
+            type:'post',
+            data:{"val":val},
+            success:function(){
+                console.log(val);
+            }
+        });
     }
 });
