@@ -50,6 +50,10 @@ $(".zu").on("click",function() {
 
 $(".jia1").one("click",function() {
     var $this = $(this);
+    var ff = $this.parent(),
+        $input = ff.find("input");
+    var postid = $input.val();
+    console.log(postid);
     var $b = $this.find("b");
     var num = parseInt($b.text()) || 0;
     $b.val(num+1);
@@ -59,9 +63,13 @@ $(".jia1").one("click",function() {
     $.ajax({
         url:'#',
         type:'post',
-        data:{"id":id},
-        success:function(){
-            console.log(id);
+        datatype: "json",
+        data:
+        {"id":id,
+        "postid":postid
+        },
+        success:function(data){
+            console.log(data);
         }
     });
     return false;
@@ -69,6 +77,11 @@ $(".jia1").one("click",function() {
 
 $(".jia2").one("click",function() {
     var $this = $(this);
+    var ff = $this.parent(),
+        $input = ff.find("input");
+    var postid = $input.val();
+    console.log(postid);
+
     var $b = $this.find("b");
     var num = parseInt($b.text()) || 0;
     $b.val(num+1);
@@ -78,9 +91,13 @@ $(".jia2").one("click",function() {
     $.ajax({
         url:'#',
         type:'post',
-        data:{"id":id},
-        success:function(){
-            console.log(id);
+        datatype: "json",
+        data:
+            {"id":id,
+             "postid":postid
+            },
+        success:function(data){
+            console.log(data);
         }
     });
     return false;

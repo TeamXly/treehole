@@ -77,7 +77,9 @@
                         </div>
                     </li>
                     <li class="xia">
-                        <div class="zan"><span class="jia1">👍 <b><s:property value="like"/></b></span><span class="jia2">👎 <b><s:property value="dislike"/></b></span>
+                        <div class="zan">
+                            <span class="jia1">👍 <b><s:property value="like"/></b></span>
+                            <span class="jia2">👎 <b><s:property value="dislike"/></b></span>
                             <span class="comm-p">评论</span>
                             <span class="fenX">分享
 								<div class="fen">
@@ -86,6 +88,7 @@
 									<a href="">腾讯微博</a>
 								</div>
 							</span>
+                            <input type="hidden" value="<s:property value="postid"/>">
                         </div>
                         <div class="comm">
                             <hr>
