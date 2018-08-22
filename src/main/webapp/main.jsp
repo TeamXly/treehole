@@ -22,7 +22,7 @@
             <img src="images/shu.png" alt="">
             <span class="deng">登录</span>
         </a>
-        <span class="welcome"><a href="Person_Center_Check.jsp">伤天害理</a>，欢迎你</span>
+        <span class="welcome"><a href="post_center">伤天害理</a>，欢迎你</span>
         <span class="quit">退出</span>
         <span class="nav-switch"></span>
         <nav class="nav">
@@ -37,13 +37,13 @@
                     <a href="/post"><img src="images/最新.png" alt=""><p>最新</p></a>
                 </li>
                 <li>
-                    <a href="Auditing.jsp"><img src="images/发布评审_icon.png" alt=""><p>审帖</p></a>
+                    <a href="Auditing"><img src="images/发布评审_icon.png" alt=""><p>审帖</p></a>
                 </li>
                 <li>
                     <a href="Person_Center_publish.jsp"><img src="images/发表游记.png" alt=""><p>发表</p></a>
                 </li>
                 <li>
-                    <a href="Person_Center_Check.jsp"><img src="images/个人中心.png" alt=""><p>个人中心</p></a>
+                    <a href="post_center"><img src="images/个人中心.png" alt=""><p>个人中心</p></a>
                 </li>
             </ul>
         </nav>
