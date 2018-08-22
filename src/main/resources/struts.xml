@@ -26,6 +26,11 @@
             <result name="success">/Person_Center_Check.jsp</result>
             <result name="error">/Person_Center_publish.jsp</result>
         </action>
+
+        <!--查找精华帖-->
+        <action name="showGoodPost" class="com.ssh.action.ShowGoodPostAction" >
+            <result>main.jsp</result>
+        </action>
         <!--<action name="actionSupport" class="com.ssh.action.PostAction" method="list">-->
             <!--<result name="success">/index.jsp</result>-->
         <!--</action>-->

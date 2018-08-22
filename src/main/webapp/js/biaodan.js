@@ -54,6 +54,7 @@ oForm.addEventListener('submit',function(e){
     var errors = this.getElementsByClassName('error');
     if(errors.length === 0){
         console.log('验证成功可以提交');
+        $(".dlz").val("登录中...");
             // $.ajax({
             //     url : 'login',
             //     type : "get",
