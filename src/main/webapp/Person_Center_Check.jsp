@@ -33,7 +33,7 @@
 
 	<div id="sideMenuContainer">
 		<h2>个人中心</h2>
-		<a href="Person_Center_Check.jsp" title="查看发言 "><span class="fa fa-bolt"></span></a>
+		<a href="post_center" title="查看发言 "><span class="fa fa-bolt"></span></a>
 		<a href="Person_Center_publish.jsp" title="发布"><span class="fa fa-exclamation-circle"></span></a>
 	</div>
 
@@ -43,7 +43,7 @@
 		<h2 class="main_title">
 			个人中心
 		</h2>
-        <s:iterator value="posts1">
+        <s:iterator value="post_center">
 		<div class="main_article">
 			<h3><s:property value="title"/></h3>
 			<div class="main_article_content">
