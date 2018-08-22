@@ -57,6 +57,11 @@ public class AddDaoimpl implements AddDao {
     }
 
     public boolean addComment(Comment comment){
+        Session session=sessionFactory.openSession().getSession();
+        Transaction tr=session.beginTransaction();
+        session.save(comment);
+        tr.commit();
+        session.close();
         // 添加回复的数据库操作
         return true;
     }

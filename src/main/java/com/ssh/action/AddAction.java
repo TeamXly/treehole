@@ -14,6 +14,8 @@ import sun.security.krb5.internal.PAForUserEnc;
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @Controller("AddAction")//@Controller用于标注控制层组件，说明这个类是控制层组件
 @Scope("prototype")
@@ -28,7 +30,7 @@ public class AddAction extends ActionSupport {
     private Comment comment;
 
     public String addPost(){
-        System.out.println("action调用");
+        //System.out.println("action调用");
         HttpServletRequest request=ServletActionContext.getRequest();
         Cookie[] cookies = request.getCookies();
         for (int i = 0; i < cookies.length; i++) {
@@ -48,6 +50,19 @@ public class AddAction extends ActionSupport {
         }
     }
     public String addcomment(){
+        HttpServletRequest request=ServletActionContext.getRequest();
+        Cookie[] cookies = request.getCookies();
+        for (int i = 0; i < cookies.length; i++) {
+            //cookies[i].getName();//获得cookies名
+            //cookies[i].getValue();//获得值
+            System.out.println(cookies[i].getName() + cookies[i].getValue());
+            if (cookies[i].getName().equals("userid")) {
+                comment.setUserid(Integer.valueOf(cookies[i].getValue()));
+            }
+        }
+        Timestamp ts = new Timestamp(new Date().getTime());
+        comment.setPublishedtime(ts);
+        addService.addComment(comment);
         return SUCCESS;
     }
 

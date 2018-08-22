@@ -61,7 +61,7 @@ $(".jia1").one("click",function() {
     $b.text($b.val());
 
     $.ajax({
-        url:'#',
+        url:'like',
         type:'post',
         datatype: "json",
         data:
@@ -89,7 +89,7 @@ $(".jia2").one("click",function() {
     $b.text($b.val());
 
     $.ajax({
-        url:'#',
+        url:'dislike',
         type:'post',
         datatype: "json",
         data:

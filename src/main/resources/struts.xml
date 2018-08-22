@@ -49,5 +49,18 @@
         <action name="cookie" class="com.ssh.action.LookCookie">
             <result name="look">/error.jsp</result>
         </action>
+
+
+    </package>
+    <package name="json" namespace="/" extends="json-default">
+        <action name="like" class="com.ssh.action.LikeDislikeAction" method="like">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="dislike" class="com.ssh.action.LikeDislikeAction" method="dislike">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="addcomment" class="com.ssh.action.AddAction" method="addcomment">
+            <result name="success" type="json"></result>
+        </action>
     </package>
 </struts>

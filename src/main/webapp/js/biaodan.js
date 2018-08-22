@@ -110,12 +110,12 @@ $(".fa").on("click",function(){
         oList.append(jie);
 
         $.ajax({
-            url:'#',
+            url:'addcomment',
             type:'post',
             datatype:"json",
             data:
-            {"val":val,
-             "postid":postid
+            {"comment.text":val,
+             "comment.postid":postid
             },
             success:function(){
                 console.log("成功");
