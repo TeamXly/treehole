@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%
     String path = request.getContextPath();
@@ -65,9 +64,9 @@
             <div class="kuang">
                 <ul class="article-list">
                     <li>
-                        <a href="" class="article-item">
+                        <div class="article-item">
                             <h3><span>Time :
-                            <s:if test="publishedtime.length() > 15">
+                            <s:if test="publishedtime.length()>1">
                                 <s:property value="publishedtime.substring(0,14)"/>
                             </s:if>
                             <s:else>
@@ -75,7 +74,7 @@
                             </s:else>
                             </span><s:property value="title"/></h3>
                             <p><s:property value="text"/></p>
-                        </a>
+                        </div>
                     </li>
                     <li class="xia">
                         <div class="zan"><span class="jia1">👍 <b><s:property value="like"/></b></span><span class="jia2">👎 <b><s:property value="dislike"/></b></span>
@@ -90,7 +89,8 @@
                         </div>
                         <div class="comm">
                             <hr>
-                            <ul class="list"></ul>
+                            <ul class="list">
+                            </ul>
                             <textarea name="textarea" class="ping" cols="30" rows="10">请不要发表与本内容无关的评论，您有了账号就是有身份的人了，我们可认识您。</textarea>
                             <button class="fa">发表</button>
                         </div>
@@ -109,7 +109,7 @@
             <h3>Music</h3>
             <section class="friends">
                 <div class="music">
-                    <div class="pic"></div>
+                    <div class="pic"><img class="img" src="images/g1.jpg" alt=""></div>
                     <div class="title tit">刚好遇见你</div>
                     <audio id="audio" src="mp3/1.mp3"></audio>
                     <div class="kong">
@@ -121,13 +121,9 @@
             </section>
         </section>
         <section class=" column-item">
-            <h3>Tags</h3>
+            <h3>Advertisement</h3>
             <section class="tags">
-                <a href="">h5</a>
-                <a href="">Css</a>
-                <a href="">Js</a>
-                <a href="">Json</a>
-                <a href="">Ajax</a>
+                <a href="">虚位以待的广告位</a>
             </section>
         </section>
         <section class="column-item">

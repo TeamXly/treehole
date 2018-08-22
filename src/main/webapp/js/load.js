@@ -136,23 +136,28 @@ function myanimate(){
 var arrMusic = [
     {
         src : "mp3/1.mp3",
-        title : "刚好遇见你"
+        title : "刚好遇见你",
+        gsrc : "images/g1.jpg"
     },
     {
         src : "mp3/2.mp3",
-        title : "我害怕"
+        title : "我害怕",
+        gsrc : "images/g2.jpg"
     },
     {
         src : "mp3/3.mp3",
-        title : "爱就一个字"
+        title : "爱就一个字",
+        gsrc : "images/g3.jpg"
     },
     {
         src : "mp3/4.mp3",
-        title : "许多年以后"
+        title : "许多年以后",
+        gsrc : "images/g4.jpg"
     },
     {
         src : "mp3/5.mp3",
-        title : "违章动物"
+        title : "违章动物",
+        gsrc : "images/g5.jpg"
     }
 ];
 
@@ -172,11 +177,12 @@ $(".prev").click(function () {
 function music(n){
     var $audio = $("#audio"),
         $title = $(".title");
-        $audio.attr("src",arrMusic[n].src);
-        $title.text(arrMusic[n].title);
-
-        if($("#fang").prop("className") == "pause"){
-            $audio.get(0).play();
-        }
+    var $img = $(".img");
+    $audio.attr("src",arrMusic[n].src);
+    $title.text(arrMusic[n].title);
+    $img.attr("src",arrMusic[n].gsrc);
+    if($("#fang").prop("className") == "pause"){
+        $audio.get(0).play();
+    }
 
 }

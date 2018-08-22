@@ -102,7 +102,7 @@ $(".fa").on("click",function(){
         oping = ff.find(".ping");
     var val = oping.val();
     if(val != ""){
-        var jie = "<li><span><a href=''>伤天害理</a></span><span>"+val+"</span></li><hr>";
+        var jie = "<li><span><img src='images/f_noface.png' alt=''></span><span>"+val+"</span></li><hr>";
         oList.append(jie);
     }
 });
