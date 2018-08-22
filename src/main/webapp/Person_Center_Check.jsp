@@ -53,7 +53,9 @@
 				<button class="button button-rounded button-tiny">
 					删除
 				</button >
-				<button class="button button-rounded button-tiny">查看详情</button>
+				<button class="button button-rounded button-tiny">
+					<a href="Person_Center_Detailed.jsp">查看详情</a>
+				</button>
 			</div>
 		</div>
         </s:iterator>
@@ -64,6 +66,7 @@
 	<script src='js/velocity.min.js'></script>
 	<script src='js/sideToggleExtended.js'></script>
 	<script src="js/jquery.cookie.js"></script>
+	<script src="js/detailed.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#sideMenu').sideToggle({
@@ -71,12 +74,20 @@
 				direction: 'right'
 			});
 
+			/*
+			*   用户名显示
+			* */
             var username=$.cookie('username');
             if(username!=null){
                 $('.Person_Center_Username').hide();
                 $('.Person_Center_Cookie').show();
                 $('.Person_Center_Cookie').html(username);
             }
+
+            /*
+            *   sessionStorage存储
+            * */
+
 		});
 	</script>
 

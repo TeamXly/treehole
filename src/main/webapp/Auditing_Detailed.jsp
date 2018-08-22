@@ -42,9 +42,9 @@
 		</h2>
 		<div class="main_content_detailed">
 			<div>
-			<p>我一直很疑惑一件事情，你我到底是否有心灵感应，我一直觉得我们有，因为有时没有什么缘由的就会突然想到你，我爱你，我知道你很好，我真的爱你，可能这辈子作孽太多，没有福分和你在一起我一直很疑惑一件事情，你我到底是否有心灵感应，我一直觉得我们有，因为有时没有什么缘由的就会突然想到你，我爱你，我知道你很好，我真的爱你，可能这辈子作孽太多，没有福分和你在一起，
-			我一直很疑惑一件事情，你我到底是否有心灵感应，我一直觉得我们有，因为有时没有什么缘由的就会突然想到你，我爱你，我知道你很好，我真的爱你，可能这辈子作孽太多，没有福分和你在一起
-		</p>
+			<p id="content">
+
+			</p>
 		</div>
 			<div class="main_content_button">
 				<button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button>
@@ -63,6 +63,10 @@
 				moving: '#sideMenuContainer',
 				direction: 'right'
 			});
+
+			var content=sessionStorage.getItem("content");
+            $('#content').html(content);
+
 		});
 
 	</script>
