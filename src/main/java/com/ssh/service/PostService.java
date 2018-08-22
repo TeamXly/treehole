@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PostService {
     public List<Post> findAll();
+    public List<Post> findAll_Center(int userid);
+    public List<Post> findAll_Auditing();
 }

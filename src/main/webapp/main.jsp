@@ -37,13 +37,13 @@
                     <a href="">最新</a>
                 </li>
                 <li>
-                    <a href="">审帖</a>
+                    <a href="Auditing">审帖</a>
                 </li>
                 <li>
                     <a href="Person_Center_publish.jsp">发表</a>
                 </li>
                 <li>
-                    <a href="Person_Center_Check.jsp">个人中心</a>
+                    <a href="post_center">个人中心</a>
                 </li>
             </ul>
         </nav>
@@ -66,8 +66,8 @@
                     <li>
                         <div class="article-item">
                             <h3><span>Time :
-                            <s:if test="publishedtime.length()>1">
-                                <s:property value="publishedtime.substring(0,2)"/>
+                            <s:if test="publishedtime.length()>15">
+                                <s:property value="publishedtime.substring(0,14)"/>
                             </s:if>
                             <s:else>
                                 <s:property value="publishedtime"/>
@@ -77,9 +77,7 @@
                         </div>
                     </li>
                     <li class="xia">
-                        <div class="zan">
-                            <span class="jia1">👍 <b><s:property value="like"/></b></span>
-                            <span class="jia2">👎 <b><s:property value="dislike"/></b></span>
+                        <div class="zan"><span class="jia1">👍 <b><s:property value="like"/></b></span><span class="jia2">👎 <b><s:property value="dislike"/></b></span>
                             <span class="comm-p">评论</span>
                             <span class="fenX">分享
 								<div class="fen">
@@ -88,13 +86,11 @@
 									<a href="">腾讯微博</a>
 								</div>
 							</span>
-                            <input type="hidden" value="<s:property value="postid"/>">
                         </div>
                         <div class="comm">
                             <hr>
                             <ul class="list">
                             </ul>
-                            <input type="hidden" value="<s:property value="postid"/>">
                             <textarea name="textarea" class="ping" cols="30" rows="10">请不要发表与本内容无关的评论，您有了账号就是有身份的人了，我们可认识您。</textarea>
                             <button class="fa">发表</button>
                         </div>

@@ -19,6 +19,7 @@ import java.util.regex.Matcher;
 
 public class PostDaoimpl extends HibernateDaoSupport implements PostDao {
 
+    @Autowired private SessionFactory sessionFactory;
 
     public PostDaoimpl(SessionFactory sessionfactory){
         setSessionFactory(sessionfactory);
@@ -28,6 +29,20 @@ public class PostDaoimpl extends HibernateDaoSupport implements PostDao {
        return (List<Post>) getHibernateTemplate().find("from Post ORDER BY publishedtime desc ");
 
     }
+
+    public List<Post> findAll_Center(int userid){
+        String hql="from Post WHERE userid=?1 ORDER BY publishedtime desc ";
+        Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setInteger(1,userid);
+        List<Post> list=null;
+        list=query.list();
+        return list;
+    }
+
+    public List<Post> findAll_Auditing(){
+        return (List<Post>) getHibernateTemplate().find("from Post ORDER BY publishedtime desc ");
+    }
+
 }
 
 

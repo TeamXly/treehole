@@ -1,4 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -42,10 +43,11 @@
 		<h2 class="main_title">
 			个人中心
 		</h2>
+        <s:iterator value="posts1">
 		<div class="main_article">
-			<h3>心情好啊</h3>
+			<h3><s:property value="title"/></h3>
 			<div class="main_article_content">
-				我一直很疑惑一件事情，你我到底是否有心灵感应，我一直觉得我们有，因为有时没有什么缘由的就会突然想到你，我爱你，我知道你很好，我真的爱你，可能这辈子作孽太多，没有福分和你在一起，因为我没结婚的时候就笃定的认为婚姻是命中注定的，后来也在网上看到只有福报相当的人才能结为夫妻，没能和你在一起大概福报不够吧，可我真的不甘心啊，有缘的夫妻不费劲就能走到一起，不管善缘还是恶缘，没缘的人想尽一切办法，用尽力气也换不来一世夫妻，知道想多了也没用，但是就是忍不住想你
+				<s:property value="text"/>
 			</div>
 			<div class="main_article_button">
 				<button class="button button-rounded button-tiny">
@@ -54,45 +56,9 @@
 				<button class="button button-rounded button-tiny">查看详情</button>
 			</div>
 		</div>
-		<div class="main_article">
-			<h3>心情好啊</h3>
-			<div class="main_article_content">
-				我一直很疑惑一件事情，你我到底是否有心灵感应，我一直觉得我们有，因为有时没有什么缘由的就会突然想到你，我爱你，我知道你很好，我真的爱你，可能这辈子作孽太多，没有福分和你在一起，因为我没结婚的时候就笃定的认为婚姻是命中注定的，后来也在网上看到只有福报相当的人才能结为夫妻，没能和你在一起大概福报不够吧，可我真的不甘心啊，有缘的夫妻不费劲就能走到一起，不管善缘还是恶缘，没缘的人想尽一切办法，用尽力气也换不来一世夫妻，知道想多了也没用，但是就是忍不住想你
-			</div>
-			<div class="main_article_button">
-				<button class="button button-rounded button-tiny">
-					删除
-				</button >
-				<button class="button button-rounded button-tiny">查看详情</button>
-			</div>
-		</div>
-		<div class="main_article">
-			<h3>心情好啊</h3>
-			<div class="main_article_content">
-				我一直很疑惑一件事情，你我到底是否有心灵感应，我一直觉得我们有，因为有时没有什么缘由的就会突然想到你，我爱你，我知道你很好，我真的爱你，可能这辈子作孽太多，没有福分和你在一起，因为我没结婚的时候就笃定的认为婚姻是命中注定的，后来也在网上看到只有福报相当的人才能结为夫妻，没能和你在一起大概福报不够吧，可我真的不甘心啊，有缘的夫妻不费劲就能走到一起，不管善缘还是恶缘，没缘的人想尽一切办法，用尽力气也换不来一世夫妻，知道想多了也没用，但是就是忍不住想你
-			</div>
-			<div class="main_article_button">
-				<button class="button button-rounded button-tiny">
-					删除
-				</button >
-				<button class="button button-rounded button-tiny">查看详情</button>
-			</div>
-		</div>
-		<div class="main_article">
-			<h3>心情好啊</h3>
-			<div class="main_article_content">
-				我一直很疑惑一件事情，你我到底是否有心灵感应，我一直觉得我们有，因为有时没有什么缘由的就会突然想到你，我爱你，我知道你很好，我真的爱你，可能这辈子作孽太多，没有福分和你在一起，因为我没结婚的时候就笃定的认为婚姻是命中注定的，后来也在网上看到只有福报相当的人才能结为夫妻，没能和你在一起大概福报不够吧，可我真的不甘心啊，有缘的夫妻不费劲就能走到一起，不管善缘还是恶缘，没缘的人想尽一切办法，用尽力气也换不来一世夫妻，知道想多了也没用，但是就是忍不住想你
-			</div>
-			<div class="main_article_button">
-				<button class="button button-rounded button-tiny">
-					删除
-				</button >
-				<button class="button button-rounded button-tiny">查看详情</button>
-			</div>
-		</div>
-
-
+        </s:iterator>
 	</div>
+
 
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script src='js/velocity.min.js'></script>

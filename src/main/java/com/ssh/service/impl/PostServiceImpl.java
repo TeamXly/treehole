@@ -18,5 +18,12 @@ public class PostServiceImpl implements PostService {
         // TODO Auto-generated method stub
         return this.idd.findAll();
     }
+    public List<Post> findAll_Center(int userid){
+        return this.idd.findAll_Center(userid);
+    }
+
+    public List<Post> findAll_Auditing(){
+        return this.idd.findAll_Auditing();
+    }
 
 }

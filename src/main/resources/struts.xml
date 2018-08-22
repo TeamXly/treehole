@@ -30,6 +30,16 @@
             <!--<result name="success">/index.jsp</result>-->
         <!--</action>-->
 
+        <!--审核帖子-->
+        <action name="Auditing" class="com.ssh.action.AuditingAction" method="Auditing">
+            <result name="success">/Auditing.jsp</result>
+        </action>
+        
+        <!--个人中心查询-->
+        <action name="post_center" class="com.ssh.action.post_centerAction" method="post_center">
+            <result name="success">/Person_Center_Check.jsp</result>
+        </action>
+
         <!--最新查询-->
         <action name="cookie" class="com.ssh.action.LookCookie">
             <result name="look">/error.jsp</result>
