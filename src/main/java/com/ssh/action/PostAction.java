@@ -2,7 +2,9 @@ package com.ssh.action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.ssh.entity.Comment;
 import com.ssh.entity.Post;
+import com.ssh.service.CommentService;
 import com.ssh.service.PostService;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
@@ -16,13 +18,20 @@ import java.util.List;
 @Scope("prototype")
 public class PostAction extends ActionSupport{
     private Post post;
+    private Comment comment;
     @Autowired
     private PostService ser;
+    @Autowired private CommentService commentService;
 
- public Post getPost() {
+    public Comment getComment() {
+        return comment;
+    }
+    public void setComment(Comment comment) {
+        this.comment = comment;
+    }
+    public Post getPost() {
   return post;
  }
-
  public void setPost(Post post) {
   this.post = post;
  }
@@ -35,6 +44,8 @@ public class PostAction extends ActionSupport{
     public String execute() throws Exception {
        List<Post> posts = ser.findAll();
         ActionContext.getContext().put("posts",posts);
+        List<Comment> comments=commentService.findall();
+     ActionContext.getContext().put("comments",comments);
         return SUCCESS;
     }
 }

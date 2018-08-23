@@ -1,9 +1,9 @@
 package com.ssh.action;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.entity.User;
 import com.ssh.service.UserService;
-import org.apache.struts2.ServletActionContext;
-import org.hibernate.event.spi.SaveOrUpdateEvent;
+import com.ssh.util.Csession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -20,22 +20,17 @@ public class LoginAction extends ActionSupport {
     private static final long serialVersionUID = 1L;
 
     @Autowired UserService userService;
-
+    @Autowired private Csession csession;
     private User user;
 
     public String login(){
-        List<Object> list=userService.login(user);
-        if (!list.isEmpty()){
-            Object[] row = (Object[]) list.get(0);
-            if (user.getPassword().equals(row[1])){
-                HttpServletResponse response = ServletActionContext.getResponse();
-                //设置cookie
-                Cookie username = new Cookie("username",String.valueOf(row[2]));
-                Cookie userid = new Cookie("userid",String.valueOf(row[0]));
-                response.addCookie(username);
-                response.addCookie(userid);
-
-                username.setMaxAge(-1);
+        User u=userService.login(user);
+        if (!u.equals(null)){
+            //Object[] row = (Object[]) list.get(0);
+            if (user.getPassword().equals(u.getPassword())){
+                csession.getcsession(u);
+                ActionContext.getContext().getSession().put("session_in_user", user);
+                System.out.println(ActionContext.getContext().getSession().get("session_in_user"));
                 return SUCCESS;
             }else {
                 return ERROR;

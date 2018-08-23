@@ -9,7 +9,10 @@ public class Comment {
     private int commentid;
     private Timestamp publishedtime;
     private String text;
-    private Integer postid;
+
+
+
+    private Integer c_postid;
     private Integer userid;
     private Post postByPostid;
     private Post postByPostid_0;
@@ -48,12 +51,12 @@ public class Comment {
 
     @Basic
     @Column(name = "postid", nullable = true)
-    public Integer getPostid() {
-        return postid;
+    public Integer getC_postid() {
+        return c_postid;
     }
 
-    public void setPostid(Integer postid) {
-        this.postid = postid;
+    public void setC_postid(Integer c_postid) {
+        this.c_postid = c_postid;
     }
 
     @Basic
@@ -74,14 +77,14 @@ public class Comment {
         return commentid == comment.commentid &&
                 Objects.equals(publishedtime, comment.publishedtime) &&
                 Objects.equals(text, comment.text) &&
-                Objects.equals(postid, comment.postid) &&
+                Objects.equals(c_postid, comment.c_postid) &&
                 Objects.equals(userid, comment.userid);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(commentid, publishedtime, text, postid, userid);
+        return Objects.hash(commentid, publishedtime, text, c_postid, userid);
     }
 
     @ManyToOne
