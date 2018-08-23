@@ -74,12 +74,12 @@
                     </li>
                     <li class="xia">
                         <div class="zan">
-                            评论！！！
-                            <s:iterator value="comments">
-                                <s:if test="c_postid==postid">
-                                <s:property value="text"/>
-                                </s:if>
-                            </s:iterator>
+                            <%--评论！！！--%>
+                            <%--<s:iterator value="comments">--%>
+                                <%--<s:if test="c_postid==postid">--%>
+                                <%--<s:property value="text"/>--%>
+                                <%--</s:if>--%>
+                            <%--</s:iterator>--%>
                             <span class="jia1">👍 <b><s:property value="like"/></b></span>
                             <span class="jia2">👎 <b><s:property value="dislike"/></b></span>
                             <span class="comm-p">评论</span>
@@ -95,6 +95,11 @@
                         <div class="comm">
                             <hr>
                             <ul class="list">
+                                <s:iterator value="comments">
+                                    <s:if test="c_postid==postid">
+                                        <li><span><img src='images/f_noface.png' alt=''></span><span><s:property value="text"/></span></li><hr>
+                                    </s:if>
+                                </s:iterator>
                             </ul>
                             <input type="hidden" value="<s:property value="postid"/>">
                             <textarea name="textarea" class="ping" cols="30" rows="10">请不要发表与本内容无关的评论，您有了账号就是有身份的人了，我们可认识您。</textarea>

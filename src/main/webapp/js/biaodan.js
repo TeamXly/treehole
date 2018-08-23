@@ -115,7 +115,7 @@ $(".fa").on("click",function(){
             datatype:"json",
             data:
             {"comment.text":val,
-             "comment.postid":postid
+             "comment.c_postid":postid
             },
             success:function(){
                 console.log("成功");
