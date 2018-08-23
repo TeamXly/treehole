@@ -9,7 +9,7 @@ public interface UserDao {
      * @param user
      * 登录
      */
-    public List<Object> login(User user);
+    public User login(User user);
 
     /**
      * 注册
