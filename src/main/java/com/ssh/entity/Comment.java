@@ -9,9 +9,6 @@ public class Comment {
     private int commentid;
     private Timestamp publishedtime;
     private String text;
-
-
-
     private Integer c_postid;
     private Integer userid;
     private Post postByPostid;

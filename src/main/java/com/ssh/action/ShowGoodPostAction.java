@@ -29,15 +29,15 @@ public class ShowGoodPostAction extends ActionSupport {
 
         System.out.println("excute.....");
         List<Post> posts=showGoodPostService.findGoodPost();
-        List<Post> posts1=new ArrayList<>();
+//        List<Post> posts1=new ArrayList<>();
 
-        for (Post post:posts){
-            if (post.isIsboutique()==false){
-                posts1.add(post);
-            }
-        }
+//        for (Post post:posts){
+//            if (post.isIsboutique()==false){
+//                posts1.add(post);
+//            }
+//        }
 
-        ActionContext.getContext().put("posts",posts1);
+        ActionContext.getContext().put("posts",posts);
         return "success";
     }
 }

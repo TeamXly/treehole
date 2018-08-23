@@ -21,6 +21,6 @@ public class CommentDaoimpl extends HibernateDaoSupport implements CommentDao {
     }
     @Override
     public List<Comment> findall() {
-        return (List<Comment>) getHibernateTemplate().find("from Comment ORDER BY publishedtime desc ");
+        return (List<Comment>) getHibernateTemplate().find("from Comment ORDER BY publishedtime asc ");
     }
 }

@@ -20,7 +20,7 @@ public class ShowGoodPostDaoImpl implements ShowGoodPostDao {
     public List<Post> findGoodPost() {
 
         System.out.println("ShowGoodPostDaoImpl...");
-        String hql = "from Post order by publishedtime desc";
+        String hql = "from Post where isboutique=true order by publishedtime desc";
         List<Post> list = sessionFactory.getCurrentSession().createQuery(hql).list();
 
         return list;
