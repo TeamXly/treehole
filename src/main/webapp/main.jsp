@@ -37,15 +37,16 @@
                     <a href="/post"><img src="images/最新.png" alt=""><p>最新</p></a>
                 </li>
                 <li>
-                    <a href="Auditing"><img src="images/发布评审_icon.png" alt=""><p>审帖</p></a>
+                    <a href="Auditing" class="trial"><img src="images/发布评审_icon.png" alt=""><p>审帖</p></a>
                 </li>
                 <li>
-                    <a href="Person_Center_publish.jsp"><img src="images/发表游记.png" alt=""><p>发表</p></a>
+                    <a href="Person_Center_publish.jsp" class="publish"><img src="images/发表游记.png" alt=""><p>发表</p></a>
                 </li>
                 <li>
-                    <a href="post_center"><img src="images/个人中心.png" alt=""><p>个人中心</p></a>
+                    <a href="post_center" class="personal"><img src="images/个人中心.png" alt=""><p>个人中心</p></a>
                 </li>
             </ul>
+            <p class="tips">请先登录，再进行骚操作</p>
         </nav>
     </section>
     <section class="header-bg" id="canvas">

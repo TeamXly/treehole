@@ -515,3 +515,12 @@ canvas {
 	60%{transform: translate(5%,0) rotate(2deg);}
 	75%{transform: translate(-5%,0) rotate(-1deg);}
 }
+
+.tips{
+	display: none;
+	float: right;
+	padding: 5px;
+	color: #ff6600;
+	border: 2px solid red;
+	border-radius: 20px;
+}
