@@ -16,7 +16,6 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/style1.css">
 	<link href="css/buttons.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
 
 
 </head>
@@ -25,7 +24,8 @@
 
 <nav>
 	<a href="#" id="userPLink">
-		<span class="fa fa-user"></span> 名字
+        <span class="Person_Center_Username">名字</span>
+        <span class="Person_Center_Cookie"></span>
 	</a>
 	<div id="sideMenu">
 		<span class="fa fa-navicon" id="sideMenuClosed"></span>
@@ -90,6 +90,7 @@
 
 <script src='js/velocity.min.js'></script>
 <script src='js/sideToggleExtended.js'></script>
+<script src="js/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/mditor.js"></script>
 <script type="text/javascript">
     var Error_msg;
@@ -98,7 +99,19 @@
             moving: '#sideMenuContainer',
             direction: 'right'
         });
+/*
+*    将名字  变成的用户名
+* */
+        var username=$.cookie('username');
+        if(username!=null){
+            $('.Person_Center_Username').hide();
+            $('.Person_Center_Cookie').show();
+            $('.Person_Center_Cookie').html(username);
+        }
 
+/*
+* 表单验证
+* */
         $('#my_From input').blur(function () {
             $parent=$(this).parent();
             $parent.find(".onError").remove();

@@ -35,6 +35,8 @@
 		<h2>个人中心</h2>
 		<a href="post_center" title="查看发言 "><span class="fa fa-bolt"></span></a>
 		<a href="Person_Center_publish.jsp" title="发布"><span class="fa fa-exclamation-circle"></span></a>
+        <a href="post" title="返回首页"><span class="fa fa-home"></span></a>
+
 	</div>
 
 	<!--中间-->
