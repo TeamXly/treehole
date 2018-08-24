@@ -51,7 +51,7 @@
         <property name="hibernateProperties">
             <value>
                 hibernate.hbm2ddl.auto=update
-                hibernate.show_sql=true
+                <!--hibernate.show_sql=true-->
                 hibernate.format_sql=true
             </value>
         </property>
