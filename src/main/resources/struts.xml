@@ -45,6 +45,12 @@
             <result name="success">/Person_Center_Check.jsp</result>
         </action>
 
+        <!--查看详情-->
+        <action name="UserWatchDetailed" class="com.ssh.action.WatchDetailedAction" method="UserWatchDetailed">
+            <result name="success">Person_Center_Detailed.jsp</result>
+        </action>
+
+
         <!--cookie查询-->
         <action name="cookie" class="com.ssh.action.LookCookie">
             <result name="look">/error.jsp</result>

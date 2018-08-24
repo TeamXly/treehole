@@ -45,24 +45,27 @@
 		<h2 class="main_title">
 			个人中心
 		</h2>
+
         <s:iterator value="post_center">
 		<div class="main_article">
 			<h3><s:property value="title"/></h3>
 			<div class="main_article_content">
 				<s:property value="text"/>
 			</div>
-			<input class="input_postid" style="display: none" value="<s:property value="postid"/>">
-			<div class="main_article_button">
 
-				<button  class="button button-rounded button-tiny button_Center_Delete">
-					删除
-				</button >
+			<button  class="button button-rounded button-tiny button_Center_Delete">
+				删除
+			</button >
 
-				<button class="button button-rounded button-tiny">
-					<a href="Person_Center_Detailed.jsp">查看详情</a>
-				</button>
+			<form action="UserWatchDetailed" method="post" id="form1">
+				<input class="input_postid" style="display: none" name="comment.c_postid"  type="text" value="<s:property value="postid"/>">
 
-			</div>
+				<div class="main_article_button">
+					<button class="button button-rounded button-tiny button_Center_detailed">
+						<input type="submit" value="查看详情">
+					</button>
+				</div>
+			</form>
 		</div>
         </s:iterator>
 	</div>

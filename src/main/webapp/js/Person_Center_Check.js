@@ -20,7 +20,7 @@ $(document).ready(function() {
     $('.button_Center_Delete').on('click',function (event) {
         event.stopPropagation();
         var $this=$(this);
-        var ff=$this.parent().prev();
+        var ff=$this.next().find('input');
 
         console.log(ff.val());
 
@@ -32,8 +32,16 @@ $(document).ready(function() {
                 "post.postid":ff.val()
             },
             success:function f() {
-                $this.parent().parent().remove();
+                $this.parent().remove();
             }
         })
     })
 });
+
+// $('.xiang').on('click',function () {
+//     var $this=$(this);
+//     var input_postid=$this.parent().parent().parent().find('input').val();
+//     console.log(input_postid);
+//     // $('form').submit();
+// })
+

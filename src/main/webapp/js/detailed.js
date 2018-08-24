@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $('.button-rounded').on('click',function () {
-        var aa=$(this).parent().parent();
+    $('.button_Center_detailed').on('click',function () {
+        var aa=$(this).parent().parent().parent();
 
         var title=aa.find('h3').text();
 
