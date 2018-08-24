@@ -45,7 +45,7 @@
             <result name="success">/Person_Center_Check.jsp</result>
         </action>
 
-        <!--最新查询-->
+        <!--cookie查询-->
         <action name="cookie" class="com.ssh.action.LookCookie">
             <result name="look">/error.jsp</result>
         </action>
@@ -63,6 +63,12 @@
             <result name="success" type="json"></result>
         </action>
         <action name="deletepost" class="com.ssh.action.UserDeleteAction" method="UserDeletePost">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="addfine" class="com.ssh.action.ManagerAction" method="addFine">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="auditingdeletepost" class="com.ssh.action.ManagerAction" method="deletePost">
             <result name="success" type="json"></result>
         </action>
     </package>

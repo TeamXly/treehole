@@ -3,6 +3,7 @@ package com.ssh.action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.entity.Post;
+import com.ssh.entity.User;
 import com.ssh.service.PostService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,15 +31,16 @@ public class post_centerAction extends ActionSupport {
     }
     public String post_center() throws Exception{
 
-        HttpServletRequest request=ServletActionContext.getRequest();
-        Cookie[] cookies = request.getCookies();
-        int userid=0;
-        for (int i = 0; i < cookies.length; i++) {
-            if(cookies[i].getName().equals("userid")){
-                userid= Integer.parseInt(cookies[i].getValue());
-            }
-        }
-        List<Post> posts1=ser.findAll_Center(userid);
+//        HttpServletRequest request=ServletActionContext.getRequest();
+//        Cookie[] cookies = request.getCookies();
+//        int userid=0;
+//        for (int i = 0; i < cookies.length; i++) {
+//            if(cookies[i].getName().equals("userid")){
+//                userid= Integer.parseInt(cookies[i].getValue());
+//            }
+//        }
+        User user=(User)ActionContext.getContext().getSession().get("session_in_user");
+        List<Post> posts1=ser.findAll_Center(user.getUserid());
         /* user对象放到值栈中的map里
          * */
         ActionContext.getContext().put("post_center",posts1);

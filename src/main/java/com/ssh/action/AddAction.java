@@ -1,8 +1,10 @@
 package com.ssh.action;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.entity.Comment;
 import com.ssh.entity.Post;
+import com.ssh.entity.User;
 import com.ssh.service.AddService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,18 +32,19 @@ public class AddAction extends ActionSupport {
 
     public String addPost(){
         //System.out.println("action调用");
-        HttpServletRequest request=ServletActionContext.getRequest();
-        Cookie[] cookies = request.getCookies();
-        for (int i = 0; i < cookies.length; i++) {
+//        HttpServletRequest request=ServletActionContext.getRequest();
+//        Cookie[] cookies = request.getCookies();
+//        for (int i = 0; i < cookies.length; i++) {
             //cookies[i].getName();//获得cookies名
             //cookies[i].getValue();//获得值
-            System.out.println(cookies[i].getName() + cookies[i].getValue());
-            if(cookies[i].getName().equals("userid")){
-                post.setUserid(Integer.valueOf(cookies[i].getValue()));
-            }
-        }
+//            System.out.println(cookies[i].getName() + cookies[i].getValue());
+//            if(cookies[i].getName().equals("userid")){
+//                post.setUserid(Integer.valueOf(cookies[i].getValue()));
+//            }
+//        }
         //post.setUserid(Integer.valueOf(cookies[1].getValue()));
-
+        User user=(User)ActionContext.getContext().getSession().get("session_in_user");
+        post.setUserid(user.getUserid());
         if(addService.addPost(post)){
             return SUCCESS;
         }else{
@@ -49,16 +52,18 @@ public class AddAction extends ActionSupport {
         }
     }
     public String addcomment(){
-        HttpServletRequest request=ServletActionContext.getRequest();
-        Cookie[] cookies = request.getCookies();
-        for (int i = 0; i < cookies.length; i++) {
-            //cookies[i].getName();//获得cookies名
-            //cookies[i].getValue();//获得值
-            System.out.println(cookies[i].getName() + cookies[i].getValue());
-            if (cookies[i].getName().equals("userid")) {
-                comment.setUserid(Integer.valueOf(cookies[i].getValue()));
-            }
-        }
+//        HttpServletRequest request=ServletActionContext.getRequest();
+//        Cookie[] cookies = request.getCookies();
+//        for (int i = 0; i < cookies.length; i++) {
+//            //cookies[i].getName();//获得cookies名
+//            //cookies[i].getValue();//获得值
+//            System.out.println(cookies[i].getName() + cookies[i].getValue());
+//            if (cookies[i].getName().equals("userid")) {
+//                comment.setUserid(Integer.valueOf(cookies[i].getValue()));
+//            }
+//        }
+        User user=(User)ActionContext.getContext().getSession().get("session_in_user");
+        comment.setUserid(user.getUserid());
         Timestamp ts = new Timestamp(new Date().getTime());
         comment.setPublishedtime(ts);
         addService.addComment(comment);

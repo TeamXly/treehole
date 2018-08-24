@@ -78,14 +78,15 @@
 				e.stopPropagation();
 
 				$.ajax({
-					url:'',
+					url:'auditingdeletepost',
 					type:'post',
 					datatype:"json",
 					data:{
 					    "post.postid":postid
 					},
 					success:function f() {
-						console.log("删除操作貌似成功");
+                        alert('删除成功');
+                        location.href='Auditing';
                     }
 				})
             })
@@ -96,14 +97,15 @@
                 e.stopPropagation();
 
                 $.ajax({
-                    url:'',
+                    url:'addfine',
                     type:'post',
                     datatype:"json",
                     data:{
-                        "post.input_isboutique":input_isboutique
+                        "post.postid":postid,
+                        "post.isboutique":input_isboutique
                     },
                     success:function f() {
-                        console.log("加操作貌似成功");
+                        alert('加入精品/取消精品成功');
                     }
                 })
             })

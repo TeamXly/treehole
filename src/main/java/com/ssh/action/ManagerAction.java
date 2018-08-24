@@ -13,13 +13,16 @@ public class ManagerAction extends ActionSupport {
     @Autowired
     ManagerService managerService;
 
+    private Post post;
 
-    public String addFine(Post post) {
+    public String addFine() {
+        this.managerService.addFine(post);
         return SUCCESS;
     }
 
 
-    public String deletePost(Post post) {
+    public String deletePost() {
+        this.managerService.deletePost(post);
         return SUCCESS;
     }
 
@@ -31,7 +34,6 @@ public class ManagerAction extends ActionSupport {
         this.post = post;
     }
 
-    private Post post;
 
 
 }

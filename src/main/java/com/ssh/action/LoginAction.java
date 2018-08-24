@@ -29,8 +29,9 @@ public class LoginAction extends ActionSupport {
             //Object[] row = (Object[]) list.get(0);
             if (user.getPassword().equals(u.getPassword())){
                 csession.getcsession(u);
-                ActionContext.getContext().getSession().put("session_in_user", user);
+                ActionContext.getContext().getSession().put("session_in_user", u);
                 System.out.println(ActionContext.getContext().getSession().get("session_in_user"));
+                User user1=(User)ActionContext.getContext().getSession().get("session_in_user");
                 return SUCCESS;
             }else {
                 return ERROR;

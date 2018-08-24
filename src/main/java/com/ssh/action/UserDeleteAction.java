@@ -22,7 +22,7 @@ public class UserDeleteAction extends ActionSupport {
     private Comment comment;
 
     public String UserDeletePost(){
-        HttpServletRequest request=ServletActionContext.getRequest();
+//        HttpServletRequest request=ServletActionContext.getRequest();
 //        int delete_Post=Integer.parseInt(request.getParameter("postid"));
 //        post.setPostid(delete_Post);
         this.userDeleteService.deletePost(post);
