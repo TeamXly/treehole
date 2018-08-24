@@ -43,6 +43,7 @@ for(var i = 0,iL = checkAttr.length;i < iL;i++){
         });
     })(checkAttr[i]);
 }
+
 //默认第一个获取焦点，防止用户一进来就提交
 // oInputs[0].focus();
 //表单提交

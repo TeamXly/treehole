@@ -14,11 +14,16 @@ public class UserDeleteServiceImpl implements UserDeleteService {
 
     @Override
     public boolean deletePost(Post post) {
-        return false;
+        if(this.userDeleteDao.deletePost(post)) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
     public boolean deleteComment(Comment comment) {
         return false;
     }
+
 }

@@ -1,6 +1,5 @@
 package com.ssh.service;
 
-import com.ssh.entity.Comment;
 import com.ssh.entity.Post;
 
 public interface LikeDislikeService {

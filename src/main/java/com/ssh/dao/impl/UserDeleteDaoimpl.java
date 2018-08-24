@@ -4,6 +4,7 @@ import com.ssh.dao.UserDeleteDao;
 import com.ssh.entity.Comment;
 import com.ssh.entity.Post;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +18,21 @@ public class UserDeleteDaoimpl implements UserDeleteDao {
 
     @Override
     public boolean deletePost(Post post) {
-        return false;
+        try{
+            String hql1="DELETE  from Comment where c_postid=:c_postid";
+            Query query1=sessionFactory.getCurrentSession().createQuery(hql1);
+            query1.setInteger("c_postid",post.getPostid());
+            query1.executeUpdate();
+
+            String hql="DELETE from Post where postid=:postid";
+            Query query=sessionFactory.getCurrentSession().createQuery(hql);
+            //query.setInteger("like",post.getLike());
+            query.setInteger("postid",post.getPostid());
+            query.executeUpdate();
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
     }
     @Override
     public boolean deleteComment(Comment comment) {

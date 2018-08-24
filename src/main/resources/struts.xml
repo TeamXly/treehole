@@ -62,5 +62,8 @@
         <action name="addcomment" class="com.ssh.action.AddAction" method="addcomment">
             <result name="success" type="json"></result>
         </action>
+        <action name="deletepost" class="com.ssh.action.UserDeleteAction" method="UserDeletePost">
+            <result name="success" type="json"></result>
+        </action>
     </package>
 </struts>

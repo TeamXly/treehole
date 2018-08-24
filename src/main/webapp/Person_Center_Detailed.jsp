@@ -20,7 +20,7 @@
 <body>
 <nav>
     <a href="#" id="userPLink">
-        <span class="fa fa-user"></span> 审核帖子
+        <span class="fa fa-user"></span> 帖子详细
     </a>
     <div id="sideMenu">
         <span class="fa fa-navicon" id="sideMenuClosed"></span>
@@ -29,7 +29,7 @@
 
 <div id="sideMenuContainer">
     <h2>个人中心</h2>
-    <a href="post_center" title="查看帖子 "><span class="fa fa-bolt"></span></a>
+        <a href="post_center" title="查看帖子 "><span class="fa fa-bolt"></span></a>
     <a href="Person_Center_publish.jsp" title="发布 "><span class="fa fa-bolt"></span></a>
 </div>
 
@@ -37,7 +37,7 @@
 
 <div class="main">
     <h2 class="main_title">
-        审核中心
+        个人帖子
     </h2>
     <div class="main_content_detailed">
         <div>
@@ -46,9 +46,8 @@
             </p>
         </div>
         <div class="main_content_button">
-            <button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button>
+            <a href="post_center"><button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button></a>
             <button class="button button-rounded button-tiny" style="width: 150px; height: 40px;margin: 10px 0px;">删除帖子</button>
-            <button class="button button-rounded button-tiny" style="width: 150px; height: 40px;margin: 10px 0px;">加入精品</button>
         </div>
     </div>
 </div>

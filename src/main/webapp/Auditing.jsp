@@ -47,6 +47,8 @@
 			<div class="main_article_content">
 				<s:property value="text"/>
 			</div>
+			<input class="input_postid" style="display: none" value="<s:property value="postid"/>">
+			<input class="input_isboutique" style="display: none" value="<s:property value="isboutique"/>">
 			<div class="main_article_button">
 				<button class="button button-rounded button-tiny">
 					<a href="Auditing_Detailed.jsp">查看详情</a>

@@ -47,9 +47,9 @@
 			</p>
 		</div>
 			<div class="main_content_button">
-				<button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button>
-				<button class="button button-rounded button-tiny" style="width: 150px; height: 40px;margin: 10px 0px;">删除帖子</button>
-				<button class="button button-rounded button-tiny" style="width: 150px; height: 40px;margin: 10px 0px;">加入精品</button>
+				<a href="Auditing"><button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button></a>
+				<button class="button button-rounded button-tiny button_delete_Auditing" style="width: 150px; height: 40px;margin: 10px 0px;">删除帖子</button>
+				<button class="button button-rounded button-tiny button_delete_isboutique" style="width: 150px; height: 40px;margin: 10px 0px;">加入精品/取消精品</button>
 			</div>
 		</div>
 	</div>
@@ -66,6 +66,47 @@
 
 			var content=sessionStorage.getItem("content");
             $('#content').html(content);
+
+            var postid=sessionStorage.getItem("postid");
+            var input_isboutique=sessionStorage.getItem("input_isboutique");
+
+            console.log(postid);
+            console.log(input_isboutique);
+
+            /*删除功能*/
+            $('.button_delete_Auditing').on('click',function (e) {
+				e.stopPropagation();
+
+				$.ajax({
+					url:'',
+					type:'post',
+					datatype:"json",
+					data:{
+					    "post.postid":postid
+					},
+					success:function f() {
+						console.log("删除操作貌似成功");
+                    }
+				})
+            })
+			/*
+			* 加精
+			* */
+            $('.button_delete_isboutique').on('click',function (e) {
+                e.stopPropagation();
+
+                $.ajax({
+                    url:'',
+                    type:'post',
+                    datatype:"json",
+                    data:{
+                        "post.input_isboutique":input_isboutique
+                    },
+                    success:function f() {
+                        console.log("加操作貌似成功");
+                    }
+                })
+            })
 
 		});
 

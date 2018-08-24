@@ -3,7 +3,6 @@ package com.ssh.action;
 import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.entity.Comment;
 import com.ssh.entity.Post;
-import com.ssh.entity.User;
 import com.ssh.service.AddService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -20,7 +20,7 @@
 <body>
 
 	<nav>
-		<a href="Person_Center_Check.jsp" id="userPLink">
+		<a href="post_center" id="userPLink">
 			<span class="fa fa-user"></span>
 			<span class="Person_Center_Username">名字</span>
 			<span class="Person_Center_Cookie"></span>
@@ -51,13 +51,17 @@
 			<div class="main_article_content">
 				<s:property value="text"/>
 			</div>
+			<input class="input_postid" style="display: none" value="<s:property value="postid"/>">
 			<div class="main_article_button">
-				<button class="button button-rounded button-tiny">
+
+				<button  class="button button-rounded button-tiny button_Center_Delete">
 					删除
 				</button >
+
 				<button class="button button-rounded button-tiny">
 					<a href="Person_Center_Detailed.jsp">查看详情</a>
 				</button>
+
 			</div>
 		</div>
         </s:iterator>
@@ -69,29 +73,7 @@
 	<script src='js/sideToggleExtended.js'></script>
 	<script src="js/jquery.cookie.js"></script>
 	<script src="js/detailed.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#sideMenu').sideToggle({
-				moving: '#sideMenuContainer',
-				direction: 'right'
-			});
-
-			/*
-			*   用户名显示
-			* */
-            var username=$.cookie('username');
-            if(username!=null){
-                $('.Person_Center_Username').hide();
-                $('.Person_Center_Cookie').show();
-                $('.Person_Center_Cookie').html(username);
-            }
-
-            /*
-            *   sessionStorage存储
-            * */
-
-		});
-	</script>
+	<script src="js/Person_Center_Check.js"></script>
 
 </body>
 
