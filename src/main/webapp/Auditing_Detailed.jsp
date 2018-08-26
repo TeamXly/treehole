@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="zh">0
 
@@ -47,11 +48,17 @@
 			</p>
 		</div>
 			<div class="main_content_button">
+				<s:iterator value="posts">
+					<s:property value="text"/>
+				</s:iterator>
 				<a href="Auditing"><button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button></a>
 				<button class="button button-rounded button-tiny button_delete_Auditing" style="width: 150px; height: 40px;margin: 10px 0px;">删除帖子</button>
 				<button class="button button-rounded button-tiny button_delete_isboutique" style="width: 150px; height: 40px;margin: 10px 0px;">加入精品/取消精品</button>
 			</div>
 		</div>
+		<s:iterator value="comments">
+			<s:property value="text"/>
+		</s:iterator>
 	</div>
 
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>

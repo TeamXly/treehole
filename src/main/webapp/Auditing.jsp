@@ -49,11 +49,15 @@
 			</div>
 			<input class="input_postid" style="display: none" value="<s:property value="postid"/>">
 			<input class="input_isboutique" style="display: none" value="<s:property value="isboutique"/>">
-			<div class="main_article_button">
+			<form action="ManagerWatchDetailed" method="post" id="form1">
+				<input class="input_postid" style="display: none" name="comment.c_postid"  type="text" value="<s:property value="postid"/>">
+				<div class="main_article_button">
 				<button class="button button-rounded button-tiny">
-					<a href="Auditing_Detailed.jsp">查看详情</a>
+					<input type="submit" value="查看详情">
+					<%--<a href="Auditing_Detailed.jsp">查看详情</a>--%>
 				</button>
 			</div>
+			</form>
 		</div>
 		</s:iterator>
 	</div>

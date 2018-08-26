@@ -47,6 +47,9 @@
             </p>
         </div>
         <div class="main_content_button">
+            <s:iterator value="posts">
+                <s:property value="text"/>
+            </s:iterator>
             <a href="post_center"><button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button></a>
             <%--<button class="button button-rounded button-tiny" style="width: 150px; height: 40px;margin: 10px 0px;">删除帖子</button>--%>
         </div>

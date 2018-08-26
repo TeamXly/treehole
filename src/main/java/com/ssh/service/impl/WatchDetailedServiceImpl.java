@@ -20,16 +20,16 @@ public class WatchDetailedServiceImpl implements WatchDetailedService {
 
     @Override
     public List<Post> UserWatchPostService(Comment comment) {
-        return null;
+        return watchDetailedDao.UserWatchPostDao(comment);
     }
 
     @Override
     public List<Comment> ManagerWatchCommentService(Comment comment) {
-        return null;
+        return watchDetailedDao.ManagerWatchCommentDao(comment);
     }
 
     @Override
     public List<Post> ManagerWatchPostService(Comment comment) {
-        return null;
+        return watchDetailedDao.UserWatchPostDao(comment);
     }
 }

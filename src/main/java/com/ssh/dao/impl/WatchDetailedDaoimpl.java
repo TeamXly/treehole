@@ -34,16 +34,31 @@ public class WatchDetailedDaoimpl extends HibernateDaoSupport implements WatchDe
 
     @Override
     public List<Post> UserWatchPostDao(Comment comment) {
-        return null;
+        String hql="from Post where postid=:postid";
+        Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("postid",comment.getC_postid());
+        List<Post> list=null;
+        list=query.list();
+        return list;
     }
 
     @Override
     public List<Comment> ManagerWatchCommentDao(Comment comment) {
-        return null;
+        String hql="from Comment c where c.c_postid=:postid";
+        Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("postid",comment.getC_postid());
+        List<Comment> list=null;
+        list=query.list();
+        return list;
     }
 
     @Override
     public List<Post> ManagerWatchPostDao(Comment comment) {
-        return null;
+        String hql="from Post where postid=:postid";
+        Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter("postid",comment.getC_postid());
+        List<Post> list=null;
+        list=query.list();
+        return list;
     }
 }
