@@ -4,12 +4,17 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.ssh.entity.User;
 import com.ssh.service.UserService;
 import com.ssh.util.Csession;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.List;
 
 import static org.apache.struts2.interceptor.DateTextFieldInterceptor.DateWord.s;
@@ -25,7 +30,7 @@ public class LoginAction extends ActionSupport {
 
     public String login(){
         User u=userService.login(user);
-        if (!u.equals(null)){
+        if (u!=null){
             //Object[] row = (Object[]) list.get(0);
             if (user.getPassword().equals(u.getPassword())){
                 csession.getcsession(u);
@@ -48,6 +53,17 @@ public class LoginAction extends ActionSupport {
             return ERROR;
         }
     }
+
+//    public String logincheck() throws IOException {
+//        PrintWriter out = response.getWriter();
+//        if (userService.logincheck(user)){
+//            out.print("手机号可用");
+//            return NONE;
+//        }else {
+//            out.print("手机号重复");
+//            return NONE;
+//        }
+//    }
     public User getUser(){
         return user;
     }
