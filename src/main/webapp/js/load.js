@@ -211,6 +211,18 @@ function music(n){
 }
 
 
+document.on("click",function f() {
+    var $jinPi = $(".jinPi");
+    var $jinP = $(".jinP");
+    var jinpi = $jinPi.val();
+    console.log("这是ft"+jinpi);
+    if(jinpi){
+        $jinP.css({
+            display: block
+        })
+    }
+});
+
 
 
 

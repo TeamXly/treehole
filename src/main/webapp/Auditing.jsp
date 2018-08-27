@@ -31,7 +31,7 @@
 
 	<div id="sideMenuContainer">
 		<h2>审核中心</h2>
-		<a href="Auditing_Detailed.jsp" title="审核帖子 "><span class="fa fa-bolt"></span></a>
+		<a href="Auditing" title="审核帖子 "><span class="fa fa-bolt"></span></a>
         <a href="post" title="返回首页"><span class="fa fa-home"></span></a>
 	</div>
 

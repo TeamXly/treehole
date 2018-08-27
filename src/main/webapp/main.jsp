@@ -66,20 +66,23 @@
                 <ul class="article-list">
                     <li>
                         <div class="article-item">
-                            <h3><span>Time :
-                            <s:property value="publishedtime"/>
-                            </span><s:property value="title"/></h3>
+                            <h3>
+                            <span>Time :
+                                <s:property value="publishedtime"/>
+                            </span>
+                                <s:if test="%{isboutique == true}">
+                                    <s:property value="title"/><img class="jinP" src="images/精品.png" alt="">
+                                </s:if>
+                                <s:else>
+                                    <s:property value="title"/>
+                                </s:else>
+                            <%--<s:property value="title"/> <img class="jinP" src="images/精品.png" alt="">--%>
+                            </h3>
                             <p><s:property value="text"/></p>
                         </div>
                     </li>
                     <li class="xia">
                         <div class="zan">
-                            <%--评论！！！--%>
-                            <%--<s:iterator value="comments">--%>
-                                <%--<s:if test="c_postid==postid">--%>
-                                <%--<s:property value="text"/>--%>
-                                <%--</s:if>--%>
-                            <%--</s:iterator>--%>
                             <span class="jia1">👍 <b><s:property value="like"/></b></span>
                             <span class="jia2">👎 <b><s:property value="dislike"/></b></span>
                             <span class="comm-p">评论</span>
