@@ -18,7 +18,6 @@
 </head>
 
 <body>
-
 	<nav>
 		<a href="post_center" id="userPLink">
 			<span class="fa fa-user"></span>
@@ -30,13 +29,11 @@
 		</div>
 	</nav>
 
-
 	<div id="sideMenuContainer">
 		<h2>个人中心</h2>
 		<a href="post_center" title="查看发言 "><span class="fa fa-bolt"></span></a>
 		<a href="Person_Center_publish.jsp" title="发布"><span class="fa fa-exclamation-circle"></span></a>
         <a href="post" title="返回首页"><span class="fa fa-home"></span></a>
-
 	</div>
 
 	<!--中间-->
@@ -52,24 +49,21 @@
 			<div class="main_article_content">
 				<s:property value="text"/>
 			</div>
-
-			<button  class="button button-rounded button-tiny button_Center_Delete">
+			<button  class="button button-rounded button-tiny button_Center_Delete" style="margin:5px;width: 80px;">
 				删除
-			</button >
+			</button>
 
-			<form action="UserWatchDetailed" method="post" id="form1">
-				<input class="input_postid" style="display: none" name="comment.c_postid"  type="text" value="<s:property value="postid"/>">
+				<form action="UserWatchDetailed" method="post" id="form1">
+					<input class="input_postid" style="display: none" name="comment.c_postid"  type="text" value="<s:property value="postid"/>">
 
-				<div class="main_article_button">
-					<button class="button button-rounded button-tiny button_Center_detailed">
-						<input type="submit" value="查看详情">
-					</button>
-				</div>
-			</form>
-		</div>
+					<div class="main_article_button" >
+							<input  class="button button-rounded button-tiny" type="submit" value="查看详情">
+					</div>
+				</form>
+			</div>
+
         </s:iterator>
 	</div>
-
 
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script src='js/velocity.min.js'></script>
@@ -79,5 +73,4 @@
 	<script src="js/Person_Center_Check.js"></script>
 
 </body>
-
 </html>

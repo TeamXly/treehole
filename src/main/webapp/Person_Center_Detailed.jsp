@@ -15,7 +15,17 @@
     <link rel="stylesheet" href="css/style1.css">
     <link href="css/buttons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/Auditing_detailed.css">
-
+    <style>
+        .list{
+            margin: 5px 10px;
+            font-size: 12px;
+            padding: 5px;
+        }
+        .list img{
+            height: 30px;
+            width:30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,20 +53,25 @@
     <div class="main_content_detailed">
         <div>
             <p id="content">
-
+                <s:iterator value="posts">
+                    <s:property value="text"/>
+                </s:iterator>
             </p>
         </div>
         <div class="main_content_button">
-            <s:iterator value="posts">
-                <s:property value="text"/>
-            </s:iterator>
             <a href="post_center"><button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button></a>
             <%--<button class="button button-rounded button-tiny" style="width: 150px; height: 40px;margin: 10px 0px;">删除帖子</button>--%>
         </div>
+        <div class="comm">
+            <hr>
+            <ul class="list" style="list-style-type:none">
+                <s:iterator value="comments">
+                <li><span><img src='images/f_noface.png' alt=''></span><span><s:property value="text"/></span></li><hr>
+                </s:iterator>
+            </ul>
+        </div>
     </div>
-    <s:iterator value="comments">
-        <s:property value="text"/>
-    </s:iterator>
+
 </div>
 
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
@@ -68,10 +83,6 @@
             moving: '#sideMenuContainer',
             direction: 'right'
         });
-
-        var content=sessionStorage.getItem("content");
-        $('#content').html(content);
-
     });
 
 </script>

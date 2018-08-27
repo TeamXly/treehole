@@ -15,7 +15,17 @@
 	<link rel="stylesheet" href="css/style1.css">
 	<link href="css/buttons.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/Auditing_detailed.css">
-
+	<style>
+		.list{
+			margin: 5px 10px;
+			font-size: 12px;
+			padding: 5px;
+		}
+		.list img{
+			height: 30px;
+			width:30px;
+		}
+	</style>
 </head>
 
 <body>
@@ -28,8 +38,6 @@
 			<span class="fa fa-navicon" id="sideMenuClosed"></span>
 		</div>
 	</nav>
-
-
 	<div id="sideMenuContainer">
 		<h2>审核中心</h2>
 		<a href="#" title="审核帖子 "><span class="fa fa-bolt"></span></a>
@@ -44,21 +52,28 @@
 		<div class="main_content_detailed">
 			<div>
 			<p id="content">
-
+				<s:iterator value="posts">
+					<s:property value="text"/>
+					<input class="button_postid" style="display: none" value="<s:property value="postid"/>">
+					<input class="button_isboutique" style="display: none" value="<s:property value="isboutique"/>">
+				</s:iterator>
 			</p>
 		</div>
 			<div class="main_content_button">
-				<s:iterator value="posts">
-					<s:property value="text"/>
-				</s:iterator>
 				<a href="Auditing"><button class="button button-rounded button-tiny" style="width: 150px; height: 40px; margin: 10px 0px;">返回</button></a>
 				<button class="button button-rounded button-tiny button_delete_Auditing" style="width: 150px; height: 40px;margin: 10px 0px;">删除帖子</button>
 				<button class="button button-rounded button-tiny button_delete_isboutique" style="width: 150px; height: 40px;margin: 10px 0px;">加入精品/取消精品</button>
 			</div>
+
+			<div class="comm">
+				<hr>
+				<ul class="list" style="list-style-type:none">
+					<s:iterator value="comments">
+						<li><span><img src='images/f_noface.png' alt=''></span><span><s:property value="text"/></span></li><hr>
+					</s:iterator>
+				</ul>
+			</div>
 		</div>
-		<s:iterator value="comments">
-			<s:property value="text"/>
-		</s:iterator>
 	</div>
 
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
@@ -71,14 +86,8 @@
 				direction: 'right'
 			});
 
-			var content=sessionStorage.getItem("content");
-            $('#content').html(content);
-
-            var postid=sessionStorage.getItem("postid");
-            var input_isboutique=sessionStorage.getItem("input_isboutique");
-
-            console.log(postid);
-            console.log(input_isboutique);
+			var postid=$('.button_postid').val();
+			var isboutique=$('.button_isboutique').val();
 
             /*删除功能*/
             $('.button_delete_Auditing').on('click',function (e) {
@@ -109,18 +118,14 @@
                     datatype:"json",
                     data:{
                         "post.postid":postid,
-                        "post.isboutique":input_isboutique
+                        "post.isboutique":isboutique
                     },
                     success:function f() {
                         alert('加入精品/取消精品成功');
                     }
                 })
             })
-
 		});
-
 	</script>
-
 </body>
-
 </html>

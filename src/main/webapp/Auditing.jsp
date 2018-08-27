@@ -52,10 +52,8 @@
 			<form action="ManagerWatchDetailed" method="post" id="form1">
 				<input class="input_postid" style="display: none" name="comment.c_postid"  type="text" value="<s:property value="postid"/>">
 				<div class="main_article_button">
-				<button class="button button-rounded button-tiny">
-					<input type="submit" value="查看详情">
+					<input class="button button-rounded button-tiny" type="submit" value="查看详情">
 					<%--<a href="Auditing_Detailed.jsp">查看详情</a>--%>
-				</button>
 			</div>
 			</form>
 		</div>
