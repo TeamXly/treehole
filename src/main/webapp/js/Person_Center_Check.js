@@ -3,6 +3,18 @@ $(document).ready(function() {
         moving: '#sideMenuContainer',
         direction: 'right'
     });
+    /*
+    *
+    * */
+
+    $('.main_article_input').each(function () {
+        var $this=$(this);
+        console.log($this.val());
+
+        if($this.val()=='true'){
+            $this.next().find('span').prepend("<img src='images/精品.png'/>");
+        }
+    })
 
     /*
     *   用户名显示
@@ -13,6 +25,7 @@ $(document).ready(function() {
         $('.Person_Center_Cookie').show();
         $('.Person_Center_Cookie').html(username);
     }
+
     /*
     * 获取隐藏表单的值
     * */
@@ -20,7 +33,7 @@ $(document).ready(function() {
     $('.button_Center_Delete').on('click',function (event) {
         event.stopPropagation();
         var $this=$(this);
-        var ff=$this.next().find('input');
+        var ff=$this.parent().next().find('input');
 
         console.log(ff.val());
 
@@ -32,10 +45,14 @@ $(document).ready(function() {
                 "post.postid":ff.val()
             },
             success:function f() {
-                $this.parent().remove();
+                $this.parent().parent().remove();
             }
         })
-    })
+    });
+
+    /*
+    *   添加精品标志
+    * */
 });
 
 // $('.xiang').on('click',function () {

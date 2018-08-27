@@ -45,32 +45,45 @@
 
         <s:iterator value="post_center">
 		<div class="main_article">
-			<h3><s:property value="title"/></h3>
+			<input class="main_article_input" style="display: none" value="<s:property value="isboutique"/>">
+			<h3><span><s:property value="title"/></span></h3>
 			<div class="main_article_content">
 				<s:property value="text"/>
 			</div>
-			<button  class="button button-rounded button-tiny button_Center_Delete" style="margin:5px;width: 80px;">
+
+			<div class="main_delete_button">
+				<button  class="button button-rounded button-tiny button_Center_Delete" style="margin:5px;width: 80px;">
 				删除
-			</button>
+				</button>
+			</div>
 
-				<form action="UserWatchDetailed" method="post" id="form1">
-					<input class="input_postid" style="display: none" name="comment.c_postid"  type="text" value="<s:property value="postid"/>">
-
+            <form action="UserWatchDetailed" method="post" id="form1">
+                <input class="input_postid" style="display: none" name="comment.c_postid"  type="text" value="<s:property value="postid"/>">
 					<div class="main_article_button" >
 							<input  class="button button-rounded button-tiny" type="submit" value="查看详情">
 					</div>
-				</form>
-			</div>
-
+            </form>
+        </div>
         </s:iterator>
 	</div>
-
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script src='js/velocity.min.js'></script>
 	<script src='js/sideToggleExtended.js'></script>
 	<script src="js/jquery.cookie.js"></script>
 	<script src="js/detailed.js"></script>
 	<script src="js/Person_Center_Check.js"></script>
+	<script>
+/*        $(document).ready(function () {
+            $('.main_article_input').each(function () {
+                var $this=$(this);
+                console.log($this.val());
+
+                if($this.val()=='true'){
+                    $this.next().find('span').prepend("<img src='images/精品.png'/>");
+				}
+            })
+        })*/
+	</script>
 
 </body>
 </html>

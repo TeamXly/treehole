@@ -219,3 +219,10 @@ div {
 	right: 0;
 	bottom: 0;
 }
+.main_delete_button{
+	position: absolute;
+	padding: 5px;
+	margin: 0 5px 5px;
+	left: 0;
+	bottom: 0;
+}

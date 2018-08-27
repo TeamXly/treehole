@@ -76,7 +76,7 @@
 
 							</td>
 							<td>
-								<button type="submit" class="btn" style="margin: 10px 0;">发布</button>
+								<button class="btn" style="margin: 10px 0;">发布</button>
 							</td>
 						</tr>
 
@@ -127,6 +127,16 @@
             $(this).triggerHandler('blur');
         }).focus(function () {
             $(this).triggerHandler('blur');
+        })
+
+		var textarea=$('#my_From textarea');
+        $('.btn').on('click',function (event) {
+            if(textarea.val()==''){
+                    alert("请输入内容");
+                	event.preventDefault();
+            }else {
+                $('.btn').submit();
+            }
         })
     });
 
