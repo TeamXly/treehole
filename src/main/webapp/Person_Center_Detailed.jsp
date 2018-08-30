@@ -84,7 +84,6 @@
             direction: 'right'
         });
     });
-
 </script>
 
 </body>

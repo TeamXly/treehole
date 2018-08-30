@@ -1,0 +1,526 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a{
+	color: inherit;
+	font-size: inherit;
+	text-decoration: none;
+}
+ul li{
+	list-style-type: none;
+}
+body{
+	font-family: "miranafont","Hiragino Sans GB","STXihei","Microsoft YaHei","SimSun","sans-serif";
+	font-size: 1em;
+	color: #504E4E;
+}
+.clearfix{*height: 1%;}
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+	*zoom: 1;
+}
+.root-view{
+	height: 100%;
+	font-size: 20px;
+	position: relative;
+	z-index: 1;
+	background-color: #e9eaed;
+}
+.root-view body{
+	height: 100%;
+}
+.container{
+	max-width: 60rem;
+	margin: 0 auto;
+	padding: 0 .75rem;
+}
+.header{
+	margin-bottom: 1rem;
+}
+.header-top{
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	padding: .75rem;
+	color: #fff;
+	overflow: hidden;
+}
+.header-top .logo{
+	float: left;
+	font-weight: 800;
+	font-size: 1.2rem;
+}
+.deng{
+	font-size: 14px;
+}
+.welcome{
+	display: none;
+	font-size: 14px;
+}
+.quit{
+	display: none;
+	font-size: 14px;
+	cursor: pointer;
+	color: #cccccc;
+}
+.quit:hover{
+	color: white;
+}
+.welcome a:hover{
+	color: #cccccc;
+}
+.header-bg{
+	position: relative;
+	overflow: hidden;
+	background: url(../images/header-bg.jpg) repeat-x;
+	/*background: #e9eaed;*/
+}
+.header-bg::before{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.3);
+}
+.self-introduce{
+	/*background: url(../images/web_logo.png) no-repeat center center/ auto;*/
+	position: relative;
+	z-index: 1;
+	padding: 7rem 0 6rem;
+	text-align: center;
+	color: #d9ffcf;
+}
+.self-introduce {
+	position: relative;
+	top: 80px;
+}
+/*中间*/
+.article-view{
+	float: left;
+	padding: 1.5rem;
+	width: 42rem;
+	background-color: #fff;
+	border-radius: .25rem;
+	position: relative;
+	z-index: 1;
+}
+.article-title{
+	position: relative;
+	z-index: 1;
+	margin-bottom: 1rem;
+	padding-bottom: .5rem;
+	font-size: 1rem;
+	font-weight: 400;
+	border-bottom: 1px solid #ddd;
+}
+
+.article-list{
+	/*overflow: hidden;*/
+	border: 5px solid #e9eaed;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	background-color: #e9eaed;
+	position: relative;
+	z-index: 1;
+}
+.article-list li{
+	margin-bottom: 1rem;
+	overflow: hidden;
+}
+
+.article-item{
+	display: block;
+}
+.article-item h3{
+	padding-bottom: .25rem;
+	font-size: .8rem;
+	transition: color .3s
+}
+.article-item h3:hover{
+	opacity: .8;
+}
+.article-item h3 span{
+	float: right;
+	padding: .2rem;
+	font-weight: 400;
+	font-size: .6rem;
+}
+.article-item p{
+	padding-bottom: .8rem;
+	line-height: 1.8;
+	font-size: .7rem;
+	text-indent: 2em;
+	overflow: hidden;
+}
+.article-item p:hover{
+	text-decoration: underline;
+}
+.load-more{
+	padding: 2rem 0 1rem;
+}
+.load-more a{
+	display: block;
+	margin: auto;
+	width: 8rem;
+	line-height: 2.5rem;
+	text-align: center;
+	font-size: .8rem;
+	color: #adadad;
+	border: .05rem solid #ddd;
+	border-radius: 2.5rem;
+}
+.load-more a:hover{
+	color: #fc6767;
+	border-color: #fc6767;
+}
+.right-column{
+	margin-left: 43rem;
+}
+.column-item{
+	padding: .75rem;
+	background-color: #fff;
+	border-radius: .25rem;
+}
+.column-item + .column-item{
+	margin-top: 1.5rem;
+}
+.column-item h3{
+	margin-bottom: .75rem;
+	padding: .5rem 0;
+	border-bottom: 1px solid #ddd;
+}
+.tags{
+	font-size: 0;
+}
+.tags a{
+	position: relative;
+	display: inline-block;
+	margin: .2rem .4rem;
+	padding: 0 .6rem;
+	min-width: 2rem;
+	min-height: 1.5rem;
+	font-size: .7rem;
+	line-height: 1.5rem;
+	border: 1px solid #ddd;
+	border-radius: 1.4rem;
+
+	transition: color .3s;
+}
+.tags a:hover{
+	background-color: #121212;
+	color: #fff;
+}
+.about-me img{
+	display: block;
+	width: 100%;
+	padding: .5rem;
+	border: 1px solid #ddd;
+	border-radius: .25rem;
+}
+.about-me p{
+	padding: .5rem;
+	font-size: .8rem;
+	text-indent: 2em;
+}
+.friends{
+	overflow: hidden;
+}
+.friends li{
+	float: left;
+	width: 50%;
+	padding: 8px;
+}
+/*底部*/
+.footer{
+	padding: 2rem 0 1rem;
+	font-size: .8rem;
+	color: #b9b9b9;
+	text-align: center;
+}
+
+#box{
+	display: none;
+	width: 600px;
+	height: 400px;
+	position: fixed;
+	background: url("../images/bg.jpg");
+	background-size: cover;
+	z-index: 99;
+	top:0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin: auto;
+}
+.reg-form{
+	margin: 100px auto 0;
+	padding: 35px 20px;
+	width: 400px;
+	border: 1px solid #ccc;
+}
+.zu{
+	width: 50px;
+	height: 30px;
+	float: left;
+	font-size: 14px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	line-height: 30px;
+}
+.qu{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	float: right;
+	cursor: pointer;
+	text-align: center;
+	line-height: 30px;
+}
+.qu:hover{
+	color: white;
+	background-color: red;
+}
+.form-item{
+	display: block;
+	overflow: hidden;
+}
+.form-item + .form-item{
+	margin-top: 15px;
+}
+.form-item > strong{
+	float: left;
+	margin-right: 10px;
+	width: 90px;
+	line-height: 35px;
+	text-align: right;
+	color: #82d9fd;
+}
+.form-item > div{
+	overflow: hidden;
+}
+.form-item > div input{
+	padding: 8px 15px;
+	width: 200px;
+	opacity: 0.6;
+}
+.form-item > div i{
+	margin-left: 10px;
+	padding-top: 8px;
+	position: absolute;
+}
+.form-item > div i.error{
+	color: #f60;
+	font-size: 14px;
+}
+.form-item > div i.success{
+	width: 30px;
+	height: 30px;
+	background: url("../images/2.png") no-repeat;
+}
+.sub-btn{
+	padding-left: 100px;
+}
+.sub-btn button{
+	padding: 5px 30px;
+	color: #fff;
+	font-size: 16px;
+	width: 200px;
+	text-align: center;
+	background-color: #15b7ff;
+	border: none;
+	cursor: pointer;
+}
+.xia .zan span{
+	margin-left: 10px;
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	border: 1px solid white;
+	text-align: center;
+	font-size: 14px;
+	line-height: 30px;
+	cursor: pointer;
+}
+.xia .zan span:hover{
+	color: white;
+}
+.xia span:nth-child(3){
+	position: absolute;
+	right: 100px;
+}
+.xia span:nth-child(4){
+	position: absolute;
+	right: 10px;
+}
+.fen{
+	width: 180px;
+	height: 30px;
+	border: 1px solid white;
+	font-size: 14px;
+	position: absolute;
+	right: -180px;
+	bottom: -1px;
+	z-index: 10;
+	background-color: #ece5d8;
+	display: none;
+}
+
+/*音乐*/
+.music{
+	width: 100%;
+	height: 200px;
+	position: relative;
+}
+.pic{
+	position: absolute;
+	left: 5px;
+	top:5px;
+	width: 100px;
+	height: 100px;
+	/*background: url("../images/g1.jpg");*/
+	background-size: cover;
+	z-index: 2;
+}
+.pic img{
+	border-radius: 50%;
+}
+.rot{
+	animation: rot 3s linear infinite;
+}
+@keyframes rot {
+	form{transform:rotate(0deg)}
+	to{transform:rotate(360deg)}
+}
+.title{
+	width: 180px;
+	height: 30px;
+	overflow: hidden;
+	position: absolute;
+	top: 50px;
+	left: 150px;
+	font-size: 16px;
+	z-index: 1;
+}
+.kong{
+	position: relative;
+	left: 0px;
+	border-radius: 20px;
+	top:126px;
+	width: 220px;
+	height: 50px;
+	margin: auto;
+}
+.kong span{
+	position: absolute;
+	top:10px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+.kong .next{
+	left: 150px;
+	background: url("../images/music_icons.png")-220px 0 no-repeat;
+}
+.kong .prev{
+	left: 10px;
+	transform: rotate(-180deg);
+	background: url("../images/music_icons.png")-220px 0 no-repeat;
+}
+.kong .play{
+	left: 80px;
+	background: url("../images/music_icons.png")-280px 0 no-repeat;
+}
+.kong .pause{
+	left: 80px;
+	background: url("../images/music_icons.png")-250px 0 no-repeat;
+}
+
+
+
+
+
+hr{
+	margin: 10px auto;
+	width: 100%;
+	border: 1px	solid #cccccc;
+
+}
+.comm{
+	display: none;
+	width: 90%;
+	height: auto;
+	margin: auto;
+}
+.comm li{
+	width: 90%;
+	height: 35px;
+	line-height: 35px;
+	margin-bottom: 0;
+}
+.comm span{
+	font-size: 14px;
+	margin-right: 10px;
+}
+.comm li img{
+	width: 24px;
+	height: 24px;
+}
+.comm ul hr{
+	margin: 0;
+	width: 100%;
+	height: 1px;
+	border: none;
+	border-top: 1px dashed #cccccc;
+
+}
+.ping{
+	margin-top: 10px;
+	outline:none;
+	resize:none;
+	width: 100%;
+	height: 40px;
+	border: none;
+}
+.fa{
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: #6a5c4c;
+	cursor: pointer;
+}
+canvas {
+    position: absolute;
+    top: 160px;
+    left: 10%;
+    z-index: 10;
+    width: 80%;
+    height: 100px;
+    user-select: none;
+}
+
+.yao{
+	animation: huo 1s ease infinite;
+}
+@keyframes huo{
+	0%,100%{transform:translate(0.0) rotate(0deg);}
+	15%{transform: translate(-15%,0) rotate(-5deg);}
+	30%{transform: translate(10%,0) rotate(3deg);}
+	45%{transform: translate(-10%,0) rotate(-3deg);}
+	60%{transform: translate(5%,0) rotate(2deg);}
+	75%{transform: translate(-5%,0) rotate(-1deg);}
+}
+
+.tips{
+	display: none;
+	float: right;
+	padding: 5px;
+	color: #ff6600;
+	border: 2px solid red;
+	border-radius: 20px;
+}

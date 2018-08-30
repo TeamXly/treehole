@@ -144,9 +144,9 @@
     </label>
 </form>
 <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/register.js"></script>
     <script type="text/javascript">
-
-    var oForm = document.getElementById('reg-form'),
+ /*   var oForm = document.getElementById('reg-form'),
         oInputs = oForm.getElementsByTagName('input');
 
     //需要匹配正则的列
@@ -263,7 +263,7 @@
     function hintsShow(ele,blooe,str){
         ele.className = blooe ? 'success' : 'error';
         ele.innerHTML = str;
-    }
+    }*/
 </script>
 </body>
 </html>

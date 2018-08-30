@@ -43,7 +43,8 @@
 		</h2>
 		<s:iterator value="Auditing">
 		<div class="main_article">
-			<h3><s:property value="title" /></h3>
+			<input class="main_article_input" style="display: none" value="<s:property value="isboutique"/>">
+			<h3><span><s:property value="title" /></span></h3>
 			<div class="main_article_content">
 				<s:property value="text"/>
 			</div>
@@ -64,13 +65,24 @@
 	<script src='js/velocity.min.js'></script>
 	<script src='js/sideToggleExtended.js'></script>
 	<script src="js/detailed.js"></script>
+	<script src="js/Auditing.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
+/*		$(document).ready(function() {
 			$('#sideMenu').sideToggle({
 				moving: '#sideMenuContainer',
 				direction: 'right'
 			});
-		});
+
+            $('.main_article_input').each(function () {
+                var $this=$(this);
+                console.log($this.val());
+
+                if($this.val()=='true'){
+                    console.log("成功");
+                    $this.next().find('span').prepend("<img src='images/精品.png'/>");
+                }
+            })
+		});*/
 	</script>
 </body>
 </html>

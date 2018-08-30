@@ -79,8 +79,9 @@
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script src='js/velocity.min.js'></script>
 	<script src='js/sideToggleExtended.js'></script>
+	<script src="js/Auditing_Detailed.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function() {
+	/*	$(document).ready(function() {
 			$('#sideMenu').sideToggle({
 				moving: '#sideMenuContainer',
 				direction: 'right'
@@ -89,7 +90,7 @@
 			var postid=$('.button_postid').val();
 			var isboutique=$('.button_isboutique').val();
 
-            /*删除功能*/
+            /!*删除功能*!/
             $('.button_delete_Auditing').on('click',function (e) {
 				e.stopPropagation();
 
@@ -106,9 +107,9 @@
                     }
 				})
             })
-			/*
+			/!*
 			* 加精
-			* */
+			* *!/
             $('.button_delete_isboutique').on('click',function (e) {
                 e.stopPropagation();
 
@@ -122,10 +123,11 @@
                     },
                     success:function f() {
                         alert('加入精品/取消精品成功');
+                        location.href="Auditing";
                     }
                 })
             })
-		});
+		});*/
 	</script>
 </body>
 </html>

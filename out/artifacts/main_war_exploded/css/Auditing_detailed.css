@@ -1,0 +1,13 @@
+.main_content_detailed{
+	font-size: 18px;
+	text-indent: 20px;
+	line-height: 40px;
+	margin:10px auto 50px;
+	width: 80%;
+	background-color: rgb(236,229,216);
+}
+
+.main_content_button{
+	margin: 0 auto;
+	text-align: center;
+}

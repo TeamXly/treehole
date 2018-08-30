@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.objectFactory" value="spring" />
+
+    <package name="ssh" namespace="/" extends="struts-default">
+        <!--登录注册-->
+        <action name="login" class="com.ssh.action.LoginAction" method="login">
+            <result name="success">/index.jsp</result>
+            <result name="error">/redirect/loginerror.jsp</result>
+        </action>
+
+        <action name="register" class="com.ssh.action.LoginAction" method="register">
+            <result name="success">/index.jsp</result>
+            <result name="error">/redirect/registererror.jsp</result>
+        </action>
+
+        <!--发表帖子和发表回复-->
+        <action name="publishpost" class="com.ssh.action.AddAction" method="addPost">
+            <result name="success">/index.jsp</result>
+            <result name="error">/Person_Center_publish.jsp</result>
+        </action>
+
+        <!--查找精华帖-->
+        <action name="showGoodPost" class="com.ssh.action.ShowGoodPostAction" >
+            <result>main.jsp</result>
+        </action>
+        <!--<action name="actionSupport" class="com.ssh.action.PostAction" method="list">-->
+            <!--<result name="success">/index.jsp</result>-->
+        <!--</action>-->
+
+        <!--审核帖子-->
+        <action name="Auditing" class="com.ssh.action.AuditingAction" method="Auditing">
+            <result name="success">/Auditing.jsp</result>
+        </action>
+        
+        <!--个人中心查询-->
+        <action name="post_center" class="com.ssh.action.post_centerAction" method="post_center">
+            <result name="success">/Person_Center_Check.jsp</result>
+        </action>
+
+        <!--查看详情-->
+        <action name="UserWatchDetailed" class="com.ssh.action.WatchDetailedAction" method="UserWatchDetailed">
+            <result name="success">Person_Center_Detailed.jsp</result>
+        </action>
+        <action name="ManagerWatchDetailed" class="com.ssh.action.WatchDetailedAction" method="ManagerWatchDetailed">
+            <result name="success">Auditing_Detailed.jsp</result>
+        </action>
+
+
+        <!--cookie查询-->
+        <action name="cookie" class="com.ssh.action.LookCookie">
+            <result name="look">/error.jsp</result>
+        </action>
+
+
+    </package>
+    <package name="json" namespace="/" extends="json-default">
+        <action name="like" class="com.ssh.action.LikeDislikeAction" method="like">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="dislike" class="com.ssh.action.LikeDislikeAction" method="dislike">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="addcomment" class="com.ssh.action.AddAction" method="addcomment">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="deletepost" class="com.ssh.action.UserDeleteAction" method="UserDeletePost">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="addfine" class="com.ssh.action.ManagerAction" method="addFine">
+            <result name="success" type="json"></result>
+        </action>
+        <action name="auditingdeletepost" class="com.ssh.action.ManagerAction" method="deletePost">
+            <result name="success" type="json"></result>
+        </action>
+    </package>
+</struts>

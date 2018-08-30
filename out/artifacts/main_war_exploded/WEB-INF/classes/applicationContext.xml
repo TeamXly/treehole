@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:ctx="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	">
+
+    <!-- Spring 组件扫描：根据base-package指定包为起点，
+            向下扫描所有被 @Repository， @Service，@Controller， @Component修饰的类，并把这些类作为组件纳入到 IoC容器统一管理 -->
+    <ctx:component-scan base-package="com.ssh"></ctx:component-scan>
+    <ctx:property-placeholder location="classpath:jdbc.perpreties"/>
+
+    <!-- 配置到数据库的连接池 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!-- 基本属性 url、user、password -->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/treehole?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8" />
+        <property name="username" value="root" />
+        <property name="password" value="1111" />
+        <!-- 配置监控统计拦截的filters -->
+        <property name="filters" value="stat" />
+
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="maxActive" value="20" />
+        <property name="initialSize" value="1" />
+        <property name="minIdle" value="1" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="60000" />
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="false" />
+        <property name="maxOpenPreparedStatements" value="20" />
+    </bean>
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="packagesToScan" value="com.ssh.entity"></property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.hbm2ddl.auto=update
+                <!--hibernate.show_sql=true-->
+                hibernate.format_sql=true
+            </value>
+        </property>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+    <!--实体类在这里!!!!!!!!!!!-->
+    <!--<bean id="user" class="com.ssh.entity.User" scope="prototype">-->
+    <!--</bean>-->
+    <!--<bean id="post" class="com.ssh.entity.Post" scope="prototype">-->
+    <!--</bean>-->
+
+</beans>

@@ -93,16 +93,17 @@
 <script src='js/sideToggleExtended.js'></script>
 <script src="js/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/mditor.js"></script>
+<script type="text/javascript" src="js/Person_Center_publish.js"></script>
 <script type="text/javascript">
-    var Error_msg;
+  /*  var Error_msg;
     $(document).ready(function() {
         $('#sideMenu').sideToggle({
             moving: '#sideMenuContainer',
             direction: 'right'
         });
-/*
+/!*
 *    将名字  变成的用户名
-* */
+* *!/
         var username=$.cookie('username');
         if(username!=null){
             $('.Person_Center_Username').hide();
@@ -110,9 +111,9 @@
             $('.Person_Center_Cookie').html(username);
         }
 
-/*
+/!*
 * 表单验证
-* */
+* *!/
         $('#my_From input').blur(function () {
             $parent=$(this).parent();
             $parent.find(".onError").remove();
@@ -130,18 +131,19 @@
         })
 
 		var textarea=$('#my_From textarea');
-        $('.btn').on('click',function (event) {
-            if(textarea.val()==''){
-                    alert("请输入内容");
-                	event.preventDefault();
-            }else {
-                $('.btn').submit();
-            }
-        })
+    $('.btn').on('click',function (event) {
+        if(textarea.val()==''){
+            alert("请输入内容");
+            event.preventDefault();
+        }else {
+            $('.btn').submit();
+        }
+    })
+
     });
 
     var ele_textarea = document.getElementById('md_editor');
-    var editor = new mditor(ele_textarea);
+    var editor = new mditor(ele_textarea);*/
 </script>
 </body>
 </html>
